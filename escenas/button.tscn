@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckc4rd6wxx3gm"]
+
+[ext_resource type="FontFile" uid="uid://dg5kc21qy1ihn" path="res://RBS/recursos/fonts/DynaPuff-VariableFont_wdth,wght.ttf" id="1_u3cjh"]
+[ext_resource type="StyleBox" uid="uid://b6rnkokexd0vs" path="res://RBS/recursos/graficos/estilos/ButtonPressed.tres" id="2_sm0yd"]
+[ext_resource type="StyleBox" uid="uid://bcfagw4vul67d" path="res://RBS/recursos/graficos/estilos/ButtonNormal.tres" id="3_3xcgc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5fjy"]
+bg_color = Color(0.45057678, 0.5494886, 0.75390625, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 20
+border_color = Color(0.29803923, 0.44059435, 0.6862745, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u3cjh"]
+
+[node name="Button" type="Button"]
+offset_right = 245.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("1_u3cjh")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = ExtResource("3_3xcgc")
+theme_override_styles/pressed = ExtResource("2_sm0yd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_a5fjy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u3cjh")
+text = "PRESS ME"

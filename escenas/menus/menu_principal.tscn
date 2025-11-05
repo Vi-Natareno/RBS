@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://bborah6161q5c"]
+
+[ext_resource type="Texture2D" uid="uid://cxwt4m3koh4d1" path="res://RBS/recursos/graficos/fondos/fondo.png" id="1_josyb"]
+[ext_resource type="Script" uid="uid://bb30iqqee7lnm" path="res://RBS/codigo/menu_principal.gd" id="1_ls36c"]
+[ext_resource type="PackedScene" uid="uid://ckc4rd6wxx3gm" path="res://RBS/escenas/button.tscn" id="2_0nnsi"]
+
+[node name="MenuPrincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ls36c")
+
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("1_josyb")
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.66528
+offset_top = 17.309479
+offset_right = 110.885254
+offset_bottom = 281.00952
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="nueva" parent="VBoxContainer" instance=ExtResource("2_0nnsi")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Nueva partida"
+
+[node name="cargar" parent="VBoxContainer" instance=ExtResource("2_0nnsi")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Cargar partida"
+
+[node name="conf" parent="VBoxContainer" instance=ExtResource("2_0nnsi")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Configuración"
+
+[node name="salir" parent="VBoxContainer" instance=ExtResource("2_0nnsi")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Salir"
+
+[node name="informacion" parent="." instance=ExtResource("2_0nnsi")]
+layout_mode = 0
+offset_left = 1160.4761
+offset_top = 32.037415
+offset_right = 1237.286
+offset_bottom = 113.98743
+theme_override_font_sizes/font_size = 37
+text = "i"
