@@ -1,4 +1,100 @@
-[gd_scene format=3 uid="uid://dykti1trdsdvv"]
+[gd_scene load_steps=13 format=3 uid="uid://dykti1trdsdvv"]
+
+[ext_resource type="Texture2D" uid="uid://beeaawhrlpk0l" path="res://RBS/recursos/graficos/fondos/menuCarga.png" id="1_bg8us"]
+[ext_resource type="Texture2D" uid="uid://mtrge8mii7ky" path="res://RBS/recursos/graficos/fondos/partida.png" id="2_bg8us"]
+[ext_resource type="PackedScene" uid="uid://ckc4rd6wxx3gm" path="res://RBS/escenas/button.tscn" id="3_xjdwl"]
+[ext_resource type="FontFile" uid="uid://dwfhssqwc8jdm" path="res://RBS/recursos/fonts/Bungee-Regular.ttf" id="4_xjdwl"]
+[ext_resource type="FontFile" uid="uid://dg5kc21qy1ihn" path="res://RBS/recursos/fonts/DynaPuff-VariableFont_wdth,wght.ttf" id="5_ibqej"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ibqej"]
+texture = ExtResource("1_bg8us")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5yd4a"]
+bg_color = Color(0.32185364, 0.51793385, 0.92578125, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 20
+border_color = Color(0.15252686, 0.37547156, 0.765625, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjdwl"]
+bg_color = Color(0.32156864, 0.5176471, 0.9254902, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 6
+border_color = Color(0.05493164, 0.29102862, 0.703125, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_size = 6
+shadow_offset = Vector2(2, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibqej"]
+bg_color = Color(0.25674438, 0.28439903, 0.69921875, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 20
+border_color = Color(0.1322937, 0.16994105, 0.6640625, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_size = 6
+shadow_offset = Vector2(2, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5lgo"]
+bg_color = Color(0.53333336, 0.53333336, 0.53333336, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 20
+border_color = Color(0.44, 0.44, 0.44, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_size = 6
+shadow_offset = Vector2(2, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sv3ix"]
+bg_color = Color(0.53333336, 0.53333336, 0.53333336, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 6
+border_color = Color(0.4392157, 0.4392157, 0.4392157, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_size = 6
+shadow_offset = Vector2(2, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3u2r6"]
+bg_color = Color(0.45057678, 0.5494886, 0.75390625, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 20
+border_color = Color(0.29803923, 0.44059435, 0.6862745, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_size = 6
+shadow_offset = Vector2(2, 5)
 
 [node name="MenuCarga" type="Control"]
 layout_mode = 3
@@ -7,3 +103,340 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Seleccionar partida" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.5411765, 1, 0.5686275, 1)
+metadata/_edit_lock_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="Seleccionar partida"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -566.9077
+offset_top = -225.73703
+offset_right = 566.9077
+offset_bottom = 326.17432
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ibqej")
+
+[node name="MarginContainer" type="MarginContainer" parent="Seleccionar partida/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 30
+
+[node name="GridContainer" type="GridContainer" parent="Seleccionar partida/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/h_separation = 4
+columns = 2
+
+[node name="p1" type="TextureRect" parent="Seleccionar partida/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_bg8us")
+
+[node name="ir1" parent="Seleccionar partida/PanelContainer/MarginContainer/GridContainer" instance=ExtResource("3_xjdwl")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_5yd4a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xjdwl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ibqej")
+text = ">"
+
+[node name="p2" type="TextureRect" parent="Seleccionar partida/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_bg8us")
+
+[node name="ir2" parent="Seleccionar partida/PanelContainer/MarginContainer/GridContainer" instance=ExtResource("3_xjdwl")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_5yd4a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xjdwl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ibqej")
+text = ">"
+
+[node name="p3" type="TextureRect" parent="Seleccionar partida/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_bg8us")
+
+[node name="ir3" parent="Seleccionar partida/PanelContainer/MarginContainer/GridContainer" instance=ExtResource("3_xjdwl")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_5yd4a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xjdwl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ibqej")
+text = ">"
+
+[node name="regresar" parent="Seleccionar partida" instance=ExtResource("3_xjdwl")]
+layout_mode = 1
+offset_left = 42.591995
+offset_top = 30.613007
+offset_right = 132.10693
+offset_bottom = 121.15405
+theme_override_font_sizes/font_size = 37
+text = "<-"
+
+[node name="seleccionar partida" type="Label" parent="Seleccionar partida"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -285.0
+offset_top = 46.599
+offset_right = 285.0
+offset_bottom = 101.599
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.29411766)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -1
+theme_override_constants/shadow_offset_y = 9
+theme_override_constants/outline_size = 17
+theme_override_fonts/font = ExtResource("4_xjdwl")
+theme_override_font_sizes/font_size = 40
+text = "Selecciona una partida"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Seleccionar partida"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 179.78403
+offset_top = -101.57999
+offset_right = 359.78403
+offset_bottom = 205.42004
+grow_vertical = 2
+theme_override_constants/separation = 80
+
+[node name="label_partida1" type="Label" parent="Seleccionar partida/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ibqej")
+theme_override_font_sizes/font_size = 38
+text = "Partida 1"
+
+[node name="label_partida2" type="Label" parent="Seleccionar partida/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ibqej")
+theme_override_font_sizes/font_size = 38
+text = "Partida 2"
+
+[node name="label_partida3" type="Label" parent="Seleccionar partida/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ibqej")
+theme_override_font_sizes/font_size = 38
+text = "Partida 3"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Seleccionar partida"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 766.28204
+offset_top = -101.57999
+offset_right = 946.28204
+offset_bottom = 205.42004
+grow_vertical = 2
+theme_override_constants/separation = 80
+
+[node name="nivel_p1" type="Label" parent="Seleccionar partida/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ibqej")
+theme_override_font_sizes/font_size = 38
+text = "nivel  -"
+
+[node name="nivel_p2" type="Label" parent="Seleccionar partida/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ibqej")
+theme_override_font_sizes/font_size = 38
+text = "nivel  -"
+
+[node name="nivel_p3" type="Label" parent="Seleccionar partida/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ibqej")
+theme_override_font_sizes/font_size = 38
+text = "nivel  -"
+
+[node name="Nueva_Partida_Screen" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="ingrear_nombre_panel" type="TextureRect" parent="Nueva_Partida_Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -469.59494
+offset_top = -217.67786
+offset_right = 469.59494
+offset_bottom = 217.67786
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bg8us")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Nueva_Partida_Screen/ingrear_nombre_panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -466.73904
+offset_top = -183.0
+offset_right = 466.7391
+offset_bottom = 183.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Nueva_Partida_Screen/ingrear_nombre_panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 68
+
+[node name="Ingresar nombre" type="Label" parent="Nueva_Partida_Screen/ingrear_nombre_panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5058824)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 15
+theme_override_fonts/font = ExtResource("5_ibqej")
+theme_override_font_sizes/font_size = 30
+text = "Ingresa un nuevo nombre:"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Nueva_Partida_Screen/ingrear_nombre_panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ibqej")
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Xtreme Bunny 888"
+alignment = 1
+max_length = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Nueva_Partida_Screen/ingrear_nombre_panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 26
+
+[node name="Butcancelarton2" parent="Nueva_Partida_Screen/ingrear_nombre_panel/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_xjdwl")]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_g5lgo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sv3ix")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3u2r6")
+text = "    Cancelar   "
+
+[node name="Confirmar" parent="Nueva_Partida_Screen/ingrear_nombre_panel/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_xjdwl")]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 29
+text = "    Confirmar   "
+
+[node name="sobreescribir_panel" type="TextureRect" parent="Nueva_Partida_Screen"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -469.59494
+offset_top = -217.67786
+offset_right = 469.59494
+offset_bottom = 217.67786
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bg8us")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Nueva_Partida_Screen/sobreescribir_panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -466.73904
+offset_top = -214.46
+offset_right = 466.7391
+offset_bottom = 218.08997
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Nueva_Partida_Screen/sobreescribir_panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="pregunta_s" type="Label" parent="Nueva_Partida_Screen/sobreescribir_panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5058824)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 15
+theme_override_fonts/font = ExtResource("5_ibqej")
+theme_override_font_sizes/font_size = 30
+text = "Esta partida ya contiene información."
+horizontal_alignment = 1
+
+[node name="sobrescribir" type="Label" parent="Nueva_Partida_Screen/sobreescribir_panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5058824)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 25
+theme_override_fonts/font = ExtResource("5_ibqej")
+theme_override_font_sizes/font_size = 35
+text = "¿Deseas sobreescribirla?"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Nueva_Partida_Screen/sobreescribir_panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 26
+
+[node name="Butcancelarton2" parent="Nueva_Partida_Screen/sobreescribir_panel/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_xjdwl")]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_g5lgo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sv3ix")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3u2r6")
+text = "    Cancelar   "
+
+[node name="Confirmar" parent="Nueva_Partida_Screen/sobreescribir_panel/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_xjdwl")]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 29
+text = "    Confirmar   "

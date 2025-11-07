@@ -1,103 +1,214 @@
-[gd_scene load_steps=4 format=3 uid="uid://5vepe5e5u8hb"]
+[gd_scene load_steps=9 format=3 uid="uid://5vepe5e5u8hb"]
 
-[ext_resource type="Script" uid="uid://ctlfdqqgy6hlh" path="res://RBS/codigo/TEMPORAL.gd" id="1_d35fn"]
+[ext_resource type="PackedScene" uid="uid://dbprv81d64y5a" path="res://RBS/escenas/menus/nivel.tscn" id="1_ic0un"]
+[ext_resource type="FontFile" uid="uid://dwfhssqwc8jdm" path="res://RBS/recursos/fonts/Bungee-Regular.ttf" id="2_b8lyn"]
+[ext_resource type="PackedScene" uid="uid://ckc4rd6wxx3gm" path="res://RBS/escenas/button.tscn" id="2_me7iy"]
+[ext_resource type="Texture2D" uid="uid://jubr0fahf830" path="res://RBS/recursos/graficos/fondos/puntuacion.svg" id="4_b8lyn"]
+[ext_resource type="FontFile" uid="uid://dg5kc21qy1ihn" path="res://RBS/recursos/fonts/DynaPuff-VariableFont_wdth,wght.ttf" id="5_xc8f0"]
+[ext_resource type="Texture2D" uid="uid://dtqh7l5a7qhnq" path="res://RBS/recursos/graficos/fondos/puente.svg" id="7_x037x"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d35fn"]
-bg_color = Color(0.1314, 0.1476, 0.18, 0.784314)
-shadow_color = Color(0.983333, 1, 0, 0.6)
-shadow_size = 4
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8lyn"]
+bg_color = Color(1, 0.8206787, 0.1171875, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 10
+border_color = Color(0.90234375, 0.6726895, 0.22911072, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.13333334)
+shadow_size = 11
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2j1q6"]
-bg_color = Color(1, 0, 0.35, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xc8f0"]
+bg_color = Color(1, 0.64705884, 0.043137256, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.83203125, 0.4984219, 0.11050415, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_size = 6
+shadow_offset = Vector2(2, 5)
 
-[node name="Node2D" type="Node2D"]
+[node name="MenuNiveles" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 2.0
-offset_right = 3335.0
-offset_bottom = 1093.0
-color = Color(0.6, 0.953333, 1, 1)
+[node name="pantalla" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 0
+offset_right = 3840.0
+offset_bottom = 720.0
+color = Color(0.25784302, 0.9158825, 0.9296875, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="pantalla"]
+layout_mode = 0
+offset_right = 1281.0
+offset_bottom = 165.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 40
+
+[node name="GridContainer" type="GridContainer" parent="pantalla/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="pantalla/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 260
+
+[node name="regresar" parent="pantalla/MarginContainer/GridContainer/HBoxContainer" instance=ExtResource("2_me7iy")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 37
+text = "  <-  "
+
+[node name="label_seleccionar" type="Label" parent="pantalla/MarginContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.22745098)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("2_b8lyn")
+theme_override_font_sizes/font_size = 30
+text = "Seleccionar nivel"
+
+[node name="puntuaciones" parent="pantalla/MarginContainer/GridContainer/HBoxContainer" instance=ExtResource("2_me7iy")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.859375, 0.525378, 0.13763428, 1)
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_b8lyn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xc8f0")
+text = "     ver puntuaciones   "
+
+[node name="niveles" type="HBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 580.0
-offset_top = 441.0
-offset_right = 3131.0
-offset_bottom = 649.0
+offset_left = 361.0
+offset_top = 212.0
+offset_right = 3536.0
+offset_bottom = 597.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 350
-alignment = 1
-script = ExtResource("1_d35fn")
+accessibility_live = 2
+theme_override_constants/separation = 4
 
-[node name="Button" type="Button" parent="HBoxContainer"]
+[node name="nivel" parent="niveles" instance=ExtResource("1_ic0un")]
 layout_mode = 2
-size_flags_horizontal = 7
-theme_override_font_sizes/font_size = 34
-theme_override_styles/focus = SubResource("StyleBoxFlat_d35fn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2j1q6")
-text = "1
-"
+size_flags_horizontal = 3
 
-[node name="Button2" type="Button" parent="HBoxContainer"]
+[node name="nivel2" parent="niveles" instance=ExtResource("1_ic0un")]
 layout_mode = 2
-size_flags_horizontal = 7
-theme_override_font_sizes/font_size = 34
-theme_override_styles/focus = SubResource("StyleBoxFlat_d35fn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2j1q6")
-text = "2
-"
+size_flags_horizontal = 3
 
-[node name="Button3" type="Button" parent="HBoxContainer"]
+[node name="nivel_n" parent="niveles/nivel2/isla" index="0"]
+text = "2"
+
+[node name="nivel3" parent="niveles" instance=ExtResource("1_ic0un")]
 layout_mode = 2
-size_flags_horizontal = 7
-theme_override_font_sizes/font_size = 34
-theme_override_styles/focus = SubResource("StyleBoxFlat_d35fn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2j1q6")
+size_flags_horizontal = 3
+
+[node name="nivel_n" parent="niveles/nivel3/isla" index="0"]
 text = "3"
 
-[node name="Button4" type="Button" parent="HBoxContainer"]
+[node name="nivel4" parent="niveles" instance=ExtResource("1_ic0un")]
 layout_mode = 2
-size_flags_horizontal = 7
-theme_override_font_sizes/font_size = 34
-theme_override_styles/focus = SubResource("StyleBoxFlat_d35fn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2j1q6")
-text = "4
-"
+size_flags_horizontal = 3
 
-[node name="Button5" type="Button" parent="HBoxContainer"]
+[node name="nivel_n" parent="niveles/nivel4/isla" index="0"]
+text = "4"
+
+[node name="nivel5" parent="niveles" instance=ExtResource("1_ic0un")]
 layout_mode = 2
-size_flags_horizontal = 7
-theme_override_font_sizes/font_size = 34
-theme_override_styles/focus = SubResource("StyleBoxFlat_d35fn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2j1q6")
-text = "5
-"
+size_flags_horizontal = 3
 
-[node name="temp" type="Node2D" parent="."]
-position = Vector2(695, 538)
+[node name="nivel_n" parent="niveles/nivel5/isla" index="0"]
+text = "5"
 
-[node name="Camera2D" type="Camera2D" parent="temp"]
-position = Vector2(-502, -389)
-limit_left = 0
-limit_top = 0
-position_smoothing_enabled = true
+[node name="Caja puntos" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 612.0
+offset_top = 131.0
+offset_right = 1256.0
+offset_bottom = 311.0
+texture = ExtResource("4_b8lyn")
 
-[node name="Button" type="Button" parent="temp"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 275.0
-offset_top = -349.0
-offset_right = 566.0
-offset_bottom = -280.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MarginContainer" type="MarginContainer" parent="Caja puntos"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Caja puntos/MarginContainer"]
+layout_mode = 2
+
+[node name="1" type="Label" parent="Caja puntos/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_xc8f0")
+theme_override_font_sizes/font_size = 24
+text = "1.   -"
+
+[node name="2" type="Label" parent="Caja puntos/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_xc8f0")
+theme_override_font_sizes/font_size = 24
+text = "2.   -"
+
+[node name="3" type="Label" parent="Caja puntos/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_xc8f0")
+theme_override_font_sizes/font_size = 24
+text = "3.   -"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 693.0
+offset_top = 371.0
+offset_right = 2948.0
+offset_bottom = 434.0
+theme_override_constants/separation = 285
+metadata/_edit_lock_ = true
+
+[node name="puente" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+texture = ExtResource("7_x037x")
+
+[node name="puente2" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+texture = ExtResource("7_x037x")
+
+[node name="puente3" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+texture = ExtResource("7_x037x")
+
+[node name="puente4" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+texture = ExtResource("7_x037x")
+
+[editable path="niveles/nivel"]
+[editable path="niveles/nivel2"]
+[editable path="niveles/nivel3"]
+[editable path="niveles/nivel4"]
+[editable path="niveles/nivel5"]
