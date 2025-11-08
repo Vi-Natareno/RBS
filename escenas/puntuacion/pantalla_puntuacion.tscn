@@ -1,0 +1,190 @@
+[gd_scene load_steps=11 format=3 uid="uid://bf8gv42kkvulg"]
+
+[ext_resource type="PackedScene" uid="uid://b8txummer78qk" path="res://RBS/escenas/juego/game_objects/player.tscn" id="1_o546t"]
+[ext_resource type="Texture2D" uid="uid://de1vowvf55sno" path="res://RBS/recursos/graficos/fondos/fondo_puntuacion.png" id="1_pg4g1"]
+[ext_resource type="FontFile" uid="uid://dwfhssqwc8jdm" path="res://RBS/recursos/fonts/Bungee-Regular.ttf" id="2_1hfnt"]
+[ext_resource type="Texture2D" uid="uid://d2asaw5cpkrgi" path="res://RBS/recursos/graficos/fondos/panel_puntuacicon.svg" id="3_6r7it"]
+[ext_resource type="Texture2D" uid="uid://boq2adgqjrogn" path="res://RBS/recursos/graficos/fondos/panel_puntos.svg" id="4_6r7it"]
+[ext_resource type="PackedScene" uid="uid://ckc4rd6wxx3gm" path="res://RBS/escenas/button.tscn" id="4_sqmwt"]
+[ext_resource type="Texture2D" uid="uid://il2td8f3ikut" path="res://RBS/recursos/graficos/fondos/panel_jugador.svg" id="5_sqmwt"]
+[ext_resource type="FontFile" uid="uid://dg5kc21qy1ihn" path="res://RBS/recursos/fonts/DynaPuff-VariableFont_wdth,wght.ttf" id="5_use5a"]
+[ext_resource type="PackedScene" uid="uid://dny6wy5esmfnp" path="res://RBS/escenas/juego/game_objects/barra_vida.tscn" id="8_use5a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_use5a"]
+bg_color = Color(0.38431373, 0.63529414, 0.85882354, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_left = 25.0
+expand_margin_top = 10.0
+expand_margin_right = 25.0
+expand_margin_bottom = 10.0
+
+[node name="PantallaPuntuacion" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pantalla" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("1_pg4g1")
+
+[node name="label_puntuacion" type="Label" parent="Pantalla"]
+layout_mode = 0
+offset_top = 38.999588
+offset_right = 1280.0
+offset_bottom = 84.99959
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.22745098)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("2_1hfnt")
+theme_override_font_sizes/font_size = 30
+text = "Puntuación"
+horizontal_alignment = 1
+
+[node name="panel_principal" type="TextureRect" parent="Pantalla"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -542.0858
+offset_top = -250.81964
+offset_right = 542.0858
+offset_bottom = 234.80566
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_6r7it")
+expand_mode = 3
+
+[node name="Hbox paneles" type="HBoxContainer" parent="Pantalla/panel_principal"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 30.0
+offset_right = 1044.0
+offset_bottom = 457.0
+theme_override_constants/separation = 43
+
+[node name="panel_puntos" type="TextureRect" parent="Pantalla/panel_principal/Hbox paneles"]
+layout_mode = 2
+texture = ExtResource("4_6r7it")
+expand_mode = 3
+
+[node name="vBox puntos" type="VBoxContainer" parent="Pantalla/panel_principal/Hbox paneles/panel_puntos"]
+layout_mode = 0
+offset_top = 41.0
+offset_right = 565.0
+offset_bottom = 378.0
+theme_override_constants/separation = 25
+
+[node name="label" type="Label" parent="Pantalla/panel_principal/Hbox paneles/panel_puntos/vBox puntos"]
+modulate = Color(0.94921875, 0.94921875, 0.94921875, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6039216)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 13
+theme_override_constants/shadow_outline_size = 22
+theme_override_fonts/font = ExtResource("5_use5a")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_use5a")
+text = "¡Nivel superado!"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Pantalla/panel_principal/Hbox paneles/panel_puntos/vBox puntos"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 50
+columns = 2
+
+[node name="pt" type="Label" parent="Pantalla/panel_principal/Hbox paneles/panel_puntos/vBox puntos/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("5_use5a")
+theme_override_font_sizes/font_size = 25
+text = "Puntuación: "
+horizontal_alignment = 1
+
+[node name="puntos_ritmo" type="Label" parent="Pantalla/panel_principal/Hbox paneles/panel_puntos/vBox puntos/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("5_use5a")
+theme_override_font_sizes/font_size = 25
+text = "888888"
+horizontal_alignment = 1
+
+[node name="x" type="Label" parent="Pantalla/panel_principal/Hbox paneles/panel_puntos/vBox puntos"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("5_use5a")
+theme_override_font_sizes/font_size = 25
+text = "x
+
+"
+horizontal_alignment = 1
+
+[node name="puntos" type="Label" parent="Pantalla/panel_principal/Hbox paneles/panel_puntos/vBox puntos"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("5_use5a")
+theme_override_font_sizes/font_size = 25
+text = "Puntuación final:"
+horizontal_alignment = 1
+
+[node name="panel_jugador" type="TextureRect" parent="Pantalla/panel_principal/Hbox paneles"]
+layout_mode = 2
+texture = ExtResource("5_sqmwt")
+expand_mode = 3
+
+[node name="continuar" parent="Pantalla" instance=ExtResource("4_sqmwt")]
+layout_mode = 0
+offset_left = 1018.39197
+offset_top = 607.43225
+offset_right = 1243.9921
+offset_bottom = 688.43225
+theme_override_font_sizes/font_size = 30
+text = "continuar"
+
+[node name="barra_vida" parent="Pantalla" instance=ExtResource("8_use5a")]
+position = Vector2(235, 365)
+scale = Vector2(4.126498, 4.126498)
+
+[node name="pts_finales" type="Label" parent="."]
+layout_mode = 0
+offset_left = 137.91418
+offset_top = 463.18036
+offset_right = 702.9142
+offset_bottom = 518.18036
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("5_use5a")
+theme_override_font_sizes/font_size = 45
+text = "12836192360"
+horizontal_alignment = 1
+
+[node name="Player" parent="." instance=ExtResource("1_o546t")]
+position = Vector2(938.3446, 513.6785)
+scale = Vector2(16.041182, 16.041182)

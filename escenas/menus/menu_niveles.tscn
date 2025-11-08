@@ -45,7 +45,8 @@ custom_minimum_size = Vector2(1280, 720)
 layout_mode = 0
 offset_right = 3840.0
 offset_bottom = 720.0
-color = Color(0.25784302, 0.9158825, 0.9296875, 1)
+color = Color(0.5882353, 0.85490197, 1, 1)
+metadata/_edit_lock_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="pantalla"]
 layout_mode = 0

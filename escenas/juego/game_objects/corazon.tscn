@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://drp5xfc1hcil4"]
+
+[ext_resource type="Texture2D" uid="uid://bajh54w86jd6s" path="res://RBS/recursos/graficos/sprites/corazon.png" id="1_ok4hw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8hrj"]
+atlas = ExtResource("1_ok4hw")
+region = Rect2(0, 0, 15, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gra1h"]
+atlas = ExtResource("1_ok4hw")
+region = Rect2(15, 0, 15, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeyus"]
+atlas = ExtResource("1_ok4hw")
+region = Rect2(30, 0, 15, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m1we"]
+atlas = ExtResource("1_ok4hw")
+region = Rect2(45, 0, 15, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lj5d"]
+atlas = ExtResource("1_ok4hw")
+region = Rect2(60, 0, 15, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1r1lw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8hrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gra1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeyus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m1we")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lj5d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="corazon" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_1r1lw")

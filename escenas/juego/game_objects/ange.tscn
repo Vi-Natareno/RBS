@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bke1q704fqihh"]
+
+[ext_resource type="Texture2D" uid="uid://dxhbaoigotlkm" path="res://RBS/recursos/graficos/sprites/angel.png" id="1_jmykq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrlf6"]
+atlas = ExtResource("1_jmykq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb4fk"]
+atlas = ExtResource("1_jmykq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_028lc"]
+atlas = ExtResource("1_jmykq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57g2m"]
+atlas = ExtResource("1_jmykq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ii8pm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrlf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb4fk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_028lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57g2m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jmd80"]
+radius = 26.838676
+height = 53.677353
+
+[node name="Ange" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ii8pm")
+autoplay = "default"
+frame_progress = 0.67833406
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(-0.89186096, -0.5656471)
+shape = SubResource("CapsuleShape2D_jmd80")

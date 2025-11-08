@@ -10,3 +10,87 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y7b3f")
+
+[node name="CrearTabla" type="Button" parent="."]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 109.0
+offset_right = 309.0
+offset_bottom = 165.0
+text = "Crear tabla"
+
+[node name="InsertarDatos" type="Button" parent="."]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 191.0
+offset_right = 309.0
+offset_bottom = 247.0
+text = "Insertar datos"
+
+[node name="SeleccionarDatos" type="Button" parent="."]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 271.0
+offset_right = 309.0
+offset_bottom = 327.0
+text = "Seleccionar datos"
+
+[node name="ActualizarDatos" type="Button" parent="."]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 350.0
+offset_right = 309.0
+offset_bottom = 406.0
+text = "Actualizar datos"
+
+[node name="EliminarDatos" type="Button" parent="."]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 421.0
+offset_right = 309.0
+offset_bottom = 477.0
+text = "Eliminar datos"
+
+[node name="SeleccionPersonalizada" type="Button" parent="."]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 497.0
+offset_right = 346.0
+offset_bottom = 553.0
+text = "Selección personalizada"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 104.0
+offset_right = 503.0
+offset_bottom = 127.0
+text = "Nombre:"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 532.0
+offset_top = 100.0
+offset_right = 782.0
+offset_bottom = 168.0
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 193.0
+offset_right = 503.0
+offset_bottom = 216.0
+text = "Nivel:"
+
+[node name="TextEdit2" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 532.0
+offset_top = 189.0
+offset_right = 782.0
+offset_bottom = 257.0
+
+[connection signal="pressed" from="CrearTabla" to="." method="_on_crear_tabla_pressed"]
+[connection signal="pressed" from="InsertarDatos" to="." method="_on_insertar_datos_pressed"]
+[connection signal="pressed" from="SeleccionarDatos" to="." method="_on_seleccionar_datos_pressed"]
+[connection signal="pressed" from="ActualizarDatos" to="." method="_on_actualizar_datos_pressed"]
+[connection signal="pressed" from="EliminarDatos" to="." method="_on_eliminar_datos_pressed"]

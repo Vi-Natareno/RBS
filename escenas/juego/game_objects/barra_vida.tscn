@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dny6wy5esmfnp"]
+
+[ext_resource type="PackedScene" uid="uid://drp5xfc1hcil4" path="res://RBS/escenas/juego/game_objects/corazon.tscn" id="1_iwww8"]
+
+[node name="barra_vida" type="Node2D"]
+
+[node name="corazonq" parent="." instance=ExtResource("1_iwww8")]
+
+[node name="corazon2" parent="." instance=ExtResource("1_iwww8")]
+position = Vector2(18, 0)
+
+[node name="corazon3" parent="." instance=ExtResource("1_iwww8")]
+position = Vector2(36, 0)
+
+[node name="corazon4" parent="." instance=ExtResource("1_iwww8")]
+position = Vector2(54, 0)
+
+[node name="corazon5" parent="." instance=ExtResource("1_iwww8")]
+position = Vector2(72, 0)
+
+[node name="corazon6" parent="." instance=ExtResource("1_iwww8")]
+position = Vector2(90, 0)

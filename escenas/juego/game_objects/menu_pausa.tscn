@@ -1,0 +1,176 @@
+[gd_scene load_steps=8 format=3 uid="uid://brilulh8xgj2n"]
+
+[ext_resource type="Texture2D" uid="uid://beeaawhrlpk0l" path="res://RBS/recursos/graficos/fondos/menuCarga.png" id="1_p84sb"]
+[ext_resource type="FontFile" uid="uid://dg5kc21qy1ihn" path="res://RBS/recursos/fonts/DynaPuff-VariableFont_wdth,wght.ttf" id="2_y0vtk"]
+[ext_resource type="PackedScene" uid="uid://ckc4rd6wxx3gm" path="res://RBS/escenas/button.tscn" id="3_2frqk"]
+[ext_resource type="Texture2D" uid="uid://ns674gh6jydv" path="res://RBS/recursos/graficos/fondos/regresa_rmenu.svg" id="4_4p4vr"]
+[ext_resource type="Texture2D" uid="uid://cy8n2t7qakpcm" path="res://RBS/recursos/graficos/fondos/pausa.svg" id="5_l0rx4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nuy5y"]
+bg_color = Color(0.8117647, 0.023529412, 0.74509805, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 20
+border_color = Color(0.627451, 0, 0.5647059, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_size = 6
+shadow_offset = Vector2(2, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbpg5"]
+bg_color = Color(0.8117647, 0.023529412, 0.74509805, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 6
+border_color = Color(0.627451, 0, 0.5647059, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_size = 6
+shadow_offset = Vector2(2, 5)
+
+[node name="MenuPausa" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Conf_Info_Screen" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="Configuración" type="TextureRect" parent="Conf_Info_Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.14989
+offset_top = -173.13312
+offset_right = 234.14989
+offset_bottom = 173.13312
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p84sb")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Conf_Info_Screen/Configuración"]
+layout_mode = 0
+offset_left = 2.760315
+offset_top = 6.8339844
+offset_right = 462.69833
+offset_bottom = 364.19998
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Conf_Info_Screen/Configuración/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 27
+
+[node name="Pausa" type="Label" parent="Conf_Info_Screen/Configuración/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5058824)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 15
+theme_override_fonts/font = ExtResource("2_y0vtk")
+theme_override_font_sizes/font_size = 25
+text = "- Pausa -"
+horizontal_alignment = 1
+
+[node name="regresar" parent="." instance=ExtResource("3_2frqk")]
+layout_mode = 0
+offset_left = 657.3772
+offset_top = 299.04483
+offset_right = 760.37744
+offset_bottom = 404.9022
+theme_override_styles/normal = SubResource("StyleBoxFlat_nuy5y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rbpg5")
+text = ""
+
+[node name="TextureRect" type="TextureRect" parent="regresar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -28.95105
+offset_right = 26.0
+offset_bottom = 14.04895
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_4p4vr")
+
+[node name="reanudar2" parent="." instance=ExtResource("3_2frqk")]
+layout_mode = 0
+offset_left = 512.5386
+offset_top = 298.36185
+offset_right = 623.0919
+offset_bottom = 402.17014
+text = ""
+
+[node name="TextureRect" type="TextureRect" parent="reanudar2"]
+self_modulate = Color(1, 1, 1, 0.88235295)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.886261
+offset_top = -30.247997
+offset_right = 21.96634
+offset_bottom = 20.257156
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_l0rx4")
+expand_mode = 5
+
+[node name="Instrucciones" type="Label" parent="."]
+layout_mode = 0
+offset_left = 469.15637
+offset_top = 439.4927
+offset_right = 633.1564
+offset_bottom = 488.4927
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6901961)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("2_y0vtk")
+theme_override_font_sizes/font_size = 18
+text = "Saltar - espacio
+moverse - flechas"
+
+[node name="Instrucciones2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 661.7662
+offset_top = 438.12668
+offset_right = 825.7662
+offset_bottom = 487.12668
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6901961)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("2_y0vtk")
+theme_override_font_sizes/font_size = 18
+text = "Golpear - w,  d,   j,   i"
