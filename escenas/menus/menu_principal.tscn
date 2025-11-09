@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bborah6161q5c"]
+[gd_scene load_steps=12 format=3 uid="uid://bborah6161q5c"]
 
 [ext_resource type="Texture2D" uid="uid://cxwt4m3koh4d1" path="res://RBS/recursos/graficos/fondos/fondo.png" id="1_josyb"]
-[ext_resource type="Script" uid="uid://bb30iqqee7lnm" path="res://RBS/codigo/menu_principal.gd" id="1_ls36c"]
+[ext_resource type="Script" uid="uid://bb30iqqee7lnm" path="res://RBS/codigo/menus/menu_principal.gd" id="1_ls36c"]
 [ext_resource type="PackedScene" uid="uid://ckc4rd6wxx3gm" path="res://RBS/escenas/button.tscn" id="2_0nnsi"]
 [ext_resource type="Texture2D" uid="uid://beeaawhrlpk0l" path="res://RBS/recursos/graficos/fondos/menuCarga.png" id="4_ommcw"]
 [ext_resource type="FontFile" uid="uid://dg5kc21qy1ihn" path="res://RBS/recursos/fonts/DynaPuff-VariableFont_wdth,wght.ttf" id="5_eqxqg"]
+[ext_resource type="PackedScene" uid="uid://c0on1tc0dlc77" path="res://RBS/escenas/menus/menu_configuracion.tscn" id="6_eqxqg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ls36c"]
 bg_color = Color(1, 0.6873399, 0.15234375, 1)
@@ -211,85 +212,11 @@ Boss Battle #2 [\"8 bit\"]  by nene
 Stage 1  by SubspaceAudio"
 horizontal_alignment = 1
 
-[node name="Configuración" type="TextureRect" parent="Conf_Info_Screen"]
+[node name="MenuConfiguracion" parent="Conf_Info_Screen" instance=ExtResource("6_eqxqg")]
 visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -282.64987
-offset_top = -184.40285
-offset_right = 282.6499
-offset_bottom = 184.40283
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_ommcw")
-expand_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Conf_Info_Screen/Configuración"]
-layout_mode = 0
-offset_left = 48.760315
-offset_top = 13.199982
-offset_right = 518.69836
-offset_bottom = 351.19998
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Conf_Info_Screen/Configuración/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 27
-
-[node name="Configuración" type="Label" parent="Conf_Info_Screen/Configuración/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5058824)
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/outline_size = 8
-theme_override_constants/shadow_outline_size = 15
-theme_override_fonts/font = ExtResource("5_eqxqg")
-theme_override_font_sizes/font_size = 25
-text = "- C o n f i g u r a c i ó n -"
-horizontal_alignment = 1
-
-[node name="Efecto" type="Label" parent="Conf_Info_Screen/Configuración/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.4509804)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("5_eqxqg")
-theme_override_font_sizes/font_size = 18
-text = "volumen de efecto"
-horizontal_alignment = 1
-
-[node name="HSlider" type="HSlider" parent="Conf_Info_Screen/Configuración/MarginContainer/VBoxContainer"]
-layout_mode = 2
-step = 10.0
-
-[node name="musica" type="Label" parent="Conf_Info_Screen/Configuración/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.4509804)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("5_eqxqg")
-theme_override_font_sizes/font_size = 18
-text = "volumen de música"
-horizontal_alignment = 1
-
-[node name="HSlider2" type="HSlider" parent="Conf_Info_Screen/Configuración/MarginContainer/VBoxContainer"]
-layout_mode = 2
-step = 10.0
-
-[node name="Button" parent="Conf_Info_Screen/Configuración/MarginContainer/VBoxContainer" instance=ExtResource("2_0nnsi")]
-layout_mode = 2
-size_flags_vertical = 4
-text = "confirmar
-"
-
-[node name="x1" parent="Conf_Info_Screen" instance=ExtResource("2_0nnsi")]
+[node name="exit_pop_panel" parent="Conf_Info_Screen" instance=ExtResource("2_0nnsi")]
 layout_mode = 0
 offset_left = 837.3
 offset_top = 198.30002
@@ -299,3 +226,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ommcw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_eqxqg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gtdyn")
 text = "x"
+
+[connection signal="pressed" from="menu/nueva" to="." method="_on_nueva_pressed"]
+[connection signal="pressed" from="menu/cargar" to="." method="_on_cargar_pressed"]
+[connection signal="pressed" from="menu/conf" to="." method="_on_conf_pressed"]
+[connection signal="pressed" from="menu/salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="informacion" to="." method="_on_informacion_pressed"]
+[connection signal="pressed" from="Conf_Info_Screen/exit_pop_panel" to="." method="_on_exit_pop_panel_pressed"]
