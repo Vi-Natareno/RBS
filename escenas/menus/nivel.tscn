@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbprv81d64y5a"]
+[gd_scene load_steps=7 format=3 uid="uid://dbprv81d64y5a"]
 
 [ext_resource type="Texture2D" uid="uid://bqlhdl188qvll" path="res://RBS/recursos/graficos/fondos/isla.svg" id="1_8n2rd"]
 [ext_resource type="PackedScene" uid="uid://ckc4rd6wxx3gm" path="res://RBS/escenas/button.tscn" id="2_ionrn"]
@@ -33,6 +33,36 @@ shadow_color = Color(0, 0, 0, 0.19215687)
 shadow_size = 6
 shadow_offset = Vector2(2, 5)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erxee"]
+bg_color = Color(0.45057678, 0.5494886, 0.75390625, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 20
+border_color = Color(0.29803923, 0.44059435, 0.6862745, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_size = 6
+shadow_offset = Vector2(2, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjqvv"]
+bg_color = Color(0.99, 0.029699972, 0.90997535, 0.5686275)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 20
+border_color = Color(0.671875, 0.03149414, 0.60783666, 0.6666667)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_size = 6
+shadow_offset = Vector2(2, 5)
+
 [node name="nivel" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -45,6 +75,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 390.0
 offset_bottom = 360.0
+mouse_filter = 2
 texture = ExtResource("1_8n2rd")
 
 [node name="nivel_n" parent="isla" instance=ExtResource("2_ionrn")]
@@ -60,7 +91,10 @@ offset_right = 69.5
 offset_bottom = 64.25
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_8n2rd")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ionrn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_erxee")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_hjqvv")
 text = "1"
