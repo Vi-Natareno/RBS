@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dykti1trdsdvv"]
+[gd_scene load_steps=14 format=3 uid="uid://dykti1trdsdvv"]
 
 [ext_resource type="Texture2D" uid="uid://beeaawhrlpk0l" path="res://RBS/recursos/graficos/fondos/menuCarga.png" id="1_bg8us"]
+[ext_resource type="Script" uid="uid://d1rake8w21lwj" path="res://RBS/codigo/menus/menu_carga.gd" id="1_ibqej"]
 [ext_resource type="Texture2D" uid="uid://mtrge8mii7ky" path="res://RBS/recursos/graficos/fondos/partida.png" id="2_bg8us"]
 [ext_resource type="PackedScene" uid="uid://ckc4rd6wxx3gm" path="res://RBS/escenas/button.tscn" id="3_xjdwl"]
 [ext_resource type="FontFile" uid="uid://dwfhssqwc8jdm" path="res://RBS/recursos/fonts/Bungee-Regular.ttf" id="4_xjdwl"]
@@ -103,6 +104,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ibqej")
 
 [node name="Seleccionar partida" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1280, 720)
@@ -442,3 +444,5 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 29
 text = "    Confirmar   "
+
+[connection signal="pressed" from="Seleccionar partida/regresar" to="." method="_on_regresar_pressed"]

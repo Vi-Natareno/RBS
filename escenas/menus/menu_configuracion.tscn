@@ -101,6 +101,7 @@ offset_bottom = 40.0
 
 [node name="musica" type="AudioStreamPlayer2D" parent="EjemplosDeAudio"]
 stream = ExtResource("5_yycsw")
+volume_db = 8.0
 bus = &"Musica"
 
 [node name="efecto" type="AudioStreamPlayer2D" parent="EjemplosDeAudio"]
