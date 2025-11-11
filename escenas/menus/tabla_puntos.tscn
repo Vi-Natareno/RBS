@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://dldluepilye5k"]
+
+[ext_resource type="Texture2D" uid="uid://jubr0fahf830" path="res://RBS/recursos/graficos/fondos/puntuacion.svg" id="1_hd1qg"]
+[ext_resource type="Script" uid="uid://b6nmgwmtl8bty" path="res://RBS/codigo/menus/tabla_puntos.gd" id="2_nhg5r"]
+[ext_resource type="FontFile" uid="uid://dg5kc21qy1ihn" path="res://RBS/recursos/fonts/DynaPuff-VariableFont_wdth,wght.ttf" id="2_npttb"]
+
+[node name="TablaPuntos" type="TextureRect"]
+offset_left = 758.0
+offset_top = 119.0
+offset_right = 1248.0
+offset_bottom = 299.0
+mouse_filter = 2
+texture = ExtResource("1_hd1qg")
+script = ExtResource("2_nhg5r")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="1" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_npttb")
+theme_override_font_sizes/font_size = 24
+text = "1.   . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+
+[node name="2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_npttb")
+theme_override_font_sizes/font_size = 24
+text = "2.   . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+
+[node name="3" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_npttb")
+theme_override_font_sizes/font_size = 24
+text = "3.   . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."

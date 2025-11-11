@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://5vepe5e5u8hb"]
+[gd_scene load_steps=10 format=3 uid="uid://5vepe5e5u8hb"]
 
 [ext_resource type="PackedScene" uid="uid://dbprv81d64y5a" path="res://RBS/escenas/menus/nivel.tscn" id="1_ic0un"]
 [ext_resource type="Script" uid="uid://djvs1qt7agg4t" path="res://RBS/codigo/menus/menu_niveles.gd" id="1_pvff8"]
 [ext_resource type="FontFile" uid="uid://dwfhssqwc8jdm" path="res://RBS/recursos/fonts/Bungee-Regular.ttf" id="2_b8lyn"]
 [ext_resource type="PackedScene" uid="uid://ckc4rd6wxx3gm" path="res://RBS/escenas/button.tscn" id="2_me7iy"]
-[ext_resource type="Texture2D" uid="uid://jubr0fahf830" path="res://RBS/recursos/graficos/fondos/puntuacion.svg" id="4_b8lyn"]
-[ext_resource type="FontFile" uid="uid://dg5kc21qy1ihn" path="res://RBS/recursos/fonts/DynaPuff-VariableFont_wdth,wght.ttf" id="5_xc8f0"]
+[ext_resource type="PackedScene" uid="uid://dldluepilye5k" path="res://RBS/escenas/menus/tabla_puntos.tscn" id="5_fhor2"]
 [ext_resource type="Texture2D" uid="uid://dtqh7l5a7qhnq" path="res://RBS/recursos/graficos/fondos/puente.svg" id="7_x037x"]
 [ext_resource type="Texture2D" uid="uid://cv71yo0lewff5" path="res://RBS/recursos/graficos/fondos/mover_camara.png" id="8_x037x"]
 
@@ -45,45 +44,6 @@ script = ExtResource("1_pvff8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Caja puntos" type="TextureRect" parent="CanvasLayer"]
-visible = false
-offset_left = 758.0
-offset_top = 119.0
-offset_right = 1248.0
-offset_bottom = 299.0
-mouse_filter = 2
-texture = ExtResource("4_b8lyn")
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Caja puntos"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Caja puntos/MarginContainer"]
-layout_mode = 2
-
-[node name="1" type="Label" parent="CanvasLayer/Caja puntos/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_xc8f0")
-theme_override_font_sizes/font_size = 24
-text = "1.   . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
-
-[node name="2" type="Label" parent="CanvasLayer/Caja puntos/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_xc8f0")
-theme_override_font_sizes/font_size = 24
-text = "2.   . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
-
-[node name="3" type="Label" parent="CanvasLayer/Caja puntos/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_xc8f0")
-theme_override_font_sizes/font_size = 24
-text = "3.   . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
-
 [node name="limite_izquierdo" type="TextureRect" parent="CanvasLayer"]
 offset_top = -1.0
 offset_right = 203.0
@@ -121,6 +81,9 @@ theme_override_fonts/font = ExtResource("2_b8lyn")
 theme_override_font_sizes/font_size = 30
 text = "Seleccionar nivel"
 horizontal_alignment = 1
+
+[node name="TablaPuntos" parent="CanvasLayer" instance=ExtResource("5_fhor2")]
+visible = false
 
 [node name="puntuaciones" parent="CanvasLayer" instance=ExtResource("2_me7iy")]
 offset_left = 882.0
@@ -246,6 +209,8 @@ anchor_mode = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
+[connection signal="pressed" from="CanvasLayer/regresar" to="." method="_on_regresar_pressed"]
+[connection signal="pressed" from="CanvasLayer/puntuaciones" to="." method="_on_puntuaciones_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/izquierda" to="." method="_on_izquierda_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/izquierda" to="." method="_on_izquierda_mouse_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/derecha" to="." method="_on_derecha_mouse_entered"]
