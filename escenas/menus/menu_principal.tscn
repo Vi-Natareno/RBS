@@ -1,14 +1,43 @@
-[gd_scene load_steps=11 format=3 uid="uid://bborah6161q5c"]
+[gd_scene load_steps=12 format=3 uid="uid://v2ulgyoqvfwh"]
 
-[ext_resource type="Script" uid="uid://cbtv2wg3w4xpk" path="res://RBS/codigo/menus/menu_configuracion.gd" id="1_uj3ct"]
+[ext_resource type="Script" uid="uid://bb30iqqee7lnm" path="res://RBS/codigo/menus/menu_principal.gd" id="1_ommcw"]
 [ext_resource type="PackedScene" uid="uid://ckc4rd6wxx3gm" path="res://RBS/escenas/button.tscn" id="2_0nnsi"]
+[ext_resource type="Texture2D" uid="uid://cxwt4m3koh4d1" path="res://RBS/recursos/graficos/fondos/fondo.png" id="2_eqxqg"]
 [ext_resource type="Texture2D" uid="uid://beeaawhrlpk0l" path="res://RBS/recursos/graficos/fondos/menuCarga.png" id="4_ommcw"]
-[ext_resource type="AudioStream" uid="uid://dtmyujgdwend" path="res://RBS/recursos/sonido/musica/happy_adveture.mp3" id="5_2u47b"]
 [ext_resource type="FontFile" uid="uid://dg5kc21qy1ihn" path="res://RBS/recursos/fonts/DynaPuff-VariableFont_wdth,wght.ttf" id="5_eqxqg"]
-[ext_resource type="AudioStream" uid="uid://bgc2brwytpy3a" path="res://RBS/recursos/sonido/efectos sonido/drum.wav" id="6_gtdyn"]
-[ext_resource type="Script" uid="uid://ciuictwldhl81" path="res://RBS/codigo/menus/GestorSonido.gd" id="7_prdd2"]
+[ext_resource type="PackedScene" uid="uid://c0on1tc0dlc77" path="res://RBS/escenas/menus/menu_configuracion.tscn" id="6_eqxqg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vus77"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ls36c"]
+bg_color = Color(1, 0.6873399, 0.15234375, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 20
+border_color = Color(0.89453125, 0.5546869, 0.15724182, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_size = 6
+shadow_offset = Vector2(2, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qhsh"]
+bg_color = Color(1, 0.64705884, 0.043137256, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 6
+border_color = Color(0.83203125, 0.4984219, 0.11050415, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_size = 6
+shadow_offset = Vector2(2, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ommcw"]
 bg_color = Color(1, 0.04296875, 0.04296875, 1)
 border_width_left = 5
 border_width_top = 5
@@ -22,7 +51,7 @@ corner_radius_bottom_left = 20
 shadow_color = Color(0, 0, 0, 0.19215687)
 shadow_offset = Vector2(2, 5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4ae0"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqxqg"]
 bg_color = Color(0.945313, 0.0406189, 0.0406189, 1)
 border_width_left = 5
 border_width_top = 5
@@ -36,7 +65,7 @@ corner_radius_bottom_left = 20
 shadow_color = Color(0, 0, 0, 0.19215687)
 shadow_offset = Vector2(2, 5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5uso"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtdyn"]
 bg_color = Color(0.45057678, 0.5494886, 0.75390625, 1)
 border_width_left = 5
 border_width_top = 5
@@ -50,16 +79,77 @@ corner_radius_bottom_left = 20
 shadow_color = Color(0, 0, 0, 0.19215687)
 shadow_offset = Vector2(2, 5)
 
-[node name="MenuConfiguracion" type="Control"]
+[node name="MenuPrincipal" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_uj3ct")
+script = ExtResource("1_ommcw")
 
-[node name="MenuConfiguracion" type="TextureRect" parent="."]
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_eqxqg")
+metadata/_edit_lock_ = true
+
+[node name="menu" type="VBoxContainer" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.66528
+offset_top = 17.309479
+offset_right = 110.885254
+offset_bottom = 281.00952
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="nueva" parent="menu" instance=ExtResource("2_0nnsi")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Nueva partida"
+
+[node name="cargar" parent="menu" instance=ExtResource("2_0nnsi")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Cargar partida"
+
+[node name="conf" parent="menu" instance=ExtResource("2_0nnsi")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Configuración"
+
+[node name="salir" parent="menu" instance=ExtResource("2_0nnsi")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Salir"
+
+[node name="informacion" parent="." instance=ExtResource("2_0nnsi")]
+layout_mode = 0
+offset_left = 1160.4761
+offset_top = 32.037415
+offset_right = 1237.286
+offset_bottom = 113.98743
+theme_override_font_sizes/font_size = 37
+theme_override_styles/normal = SubResource("StyleBoxFlat_ls36c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0qhsh")
+text = "i"
+
+[node name="Conf_Info_Screen" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="Informacion" type="TextureRect" parent="Conf_Info_Screen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -75,22 +165,15 @@ grow_vertical = 2
 texture = ExtResource("4_ommcw")
 expand_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MenuConfiguracion"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Conf_Info_Screen/Informacion"]
 layout_mode = 0
-offset_left = 48.760315
-offset_top = 27.199982
-offset_right = 518.69836
-offset_bottom = 351.19998
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuConfiguracion/MarginContainer"]
-layout_mode = 2
+offset_left = 20.0
+offset_top = 34.30002
+offset_right = 542.0
+offset_bottom = 345.30002
 theme_override_constants/separation = 37
 
-[node name="Configuración" type="Label" parent="MenuConfiguracion/MarginContainer/VBoxContainer"]
+[node name="Creditos" type="Label" parent="Conf_Info_Screen/Informacion/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5058824)
 theme_override_constants/shadow_offset_x = 1
@@ -99,69 +182,47 @@ theme_override_constants/outline_size = 8
 theme_override_constants/shadow_outline_size = 15
 theme_override_fonts/font = ExtResource("5_eqxqg")
 theme_override_font_sizes/font_size = 25
-text = "- C o n f i g u r a c i ó n -"
+text = "- Créditos -"
 horizontal_alignment = 1
 
-[node name="Efecto" type="Label" parent="MenuConfiguracion/MarginContainer/VBoxContainer"]
+[node name="leap" type="Label" parent="Conf_Info_Screen/Informacion/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.4509804)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 7
 theme_override_fonts/font = ExtResource("5_eqxqg")
 theme_override_font_sizes/font_size = 18
-text = "volumen de efecto"
+text = "Leap[8 bit]  by nene
+
+8 Bit Background Music  by Quitschie
+
+Boss Battle #2 [\"8 bit\"]  by nene
+
+8-bit - Slay The Evil  by HydroGene
+
+Stage 1  by SubspaceAudio"
 horizontal_alignment = 1
 
-[node name="HSlider_efecto" type="HSlider" parent="MenuConfiguracion/MarginContainer/VBoxContainer"]
-layout_mode = 2
-max_value = 1.5
-step = 0.1
-
-[node name="musica" type="Label" parent="MenuConfiguracion/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.4509804)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("5_eqxqg")
-theme_override_font_sizes/font_size = 18
-text = "volumen de música"
-horizontal_alignment = 1
-
-[node name="HSlider_musica" type="HSlider" parent="MenuConfiguracion/MarginContainer/VBoxContainer"]
-layout_mode = 2
-max_value = 1.5
-step = 0.1
-
-[node name="exit_pop_panel" parent="." instance=ExtResource("2_0nnsi")]
+[node name="cerrar" parent="Conf_Info_Screen" instance=ExtResource("2_0nnsi")]
 layout_mode = 0
 offset_left = 837.3
 offset_top = 198.30002
 offset_right = 894.4
 offset_bottom = 255.50003
-theme_override_styles/normal = SubResource("StyleBoxFlat_vus77")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_j4ae0")
-theme_override_styles/hover = SubResource("StyleBoxFlat_g5uso")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ommcw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eqxqg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gtdyn")
 text = "x"
 
-[node name="EjemplosDeAudio" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MenuConfiguracion" parent="Conf_Info_Screen" instance=ExtResource("6_eqxqg")]
+visible = false
+layout_mode = 1
 
-[node name="musica" type="AudioStreamPlayer2D" parent="EjemplosDeAudio"]
-stream = ExtResource("5_2u47b")
-bus = &"Musica"
-
-[node name="efecto" type="AudioStreamPlayer2D" parent="EjemplosDeAudio"]
-stream = ExtResource("6_gtdyn")
-volume_db = 1.0
-bus = &"SFX"
-
-[node name="GestorSonido" type="Node" parent="."]
-script = ExtResource("7_prdd2")
-
-[connection signal="drag_ended" from="MenuConfiguracion/MarginContainer/VBoxContainer/HSlider_efecto" to="." method="_on_h_slider_efecto_drag_ended"]
-[connection signal="focus_exited" from="MenuConfiguracion/MarginContainer/VBoxContainer/HSlider_efecto" to="." method="_on_h_slider_efecto_focus_exited"]
-[connection signal="value_changed" from="MenuConfiguracion/MarginContainer/VBoxContainer/HSlider_efecto" to="." method="_on_h_slider_efecto_value_changed"]
-[connection signal="value_changed" from="MenuConfiguracion/MarginContainer/VBoxContainer/HSlider_musica" to="." method="_on_h_slider_musica_value_changed"]
-[connection signal="pressed" from="exit_pop_panel" to="." method="_on_exit_pop_panel_pressed"]
+[connection signal="pressed" from="menu/nueva" to="." method="_on_nueva_pressed"]
+[connection signal="pressed" from="menu/cargar" to="." method="_on_cargar_pressed"]
+[connection signal="pressed" from="menu/conf" to="." method="_on_conf_pressed"]
+[connection signal="pressed" from="menu/salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="informacion" to="." method="_on_informacion_pressed"]
+[connection signal="pressed" from="Conf_Info_Screen/cerrar" to="." method="_on_cerrar_pressed"]
