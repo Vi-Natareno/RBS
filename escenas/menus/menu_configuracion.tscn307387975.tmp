@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0on1tc0dlc77"]
+[gd_scene load_steps=7 format=3 uid="uid://c0on1tc0dlc77"]
 
 [ext_resource type="Texture2D" uid="uid://beeaawhrlpk0l" path="res://RBS/recursos/graficos/fondos/menuCarga.png" id="1_angwa"]
 [ext_resource type="Script" uid="uid://cbtv2wg3w4xpk" path="res://RBS/codigo/menus/menu_configuracion.gd" id="1_b4uhv"]
@@ -6,49 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://ckc4rd6wxx3gm" path="res://RBS/escenas/button.tscn" id="3_yycsw"]
 [ext_resource type="AudioStream" uid="uid://dtmyujgdwend" path="res://RBS/recursos/sonido/musica/happy_adveture.mp3" id="5_yycsw"]
 [ext_resource type="AudioStream" uid="uid://bgc2brwytpy3a" path="res://RBS/recursos/sonido/efectos sonido/drum.wav" id="6_vus77"]
-[ext_resource type="Script" uid="uid://ciuictwldhl81" path="res://RBS/codigo/menus/GestorSonido.gd" id="7_j4ae0"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vus77"]
-bg_color = Color(1, 0.04296875, 0.04296875, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 9
-border_color = Color(0.8671875, 0, 0, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_color = Color(0, 0, 0, 0.19215687)
-shadow_offset = Vector2(2, 5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4ae0"]
-bg_color = Color(0.945313, 0.0406189, 0.0406189, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 4
-border_color = Color(0.682353, 0, 0, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_color = Color(0, 0, 0, 0.19215687)
-shadow_offset = Vector2(2, 5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5uso"]
-bg_color = Color(0.45057678, 0.5494886, 0.75390625, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 9
-border_color = Color(0.29803923, 0.44059435, 0.6862745, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_color = Color(0, 0, 0, 0.19215687)
-shadow_offset = Vector2(2, 5)
 
 [node name="MenuConfiguracion" type="Control"]
 layout_mode = 3
@@ -78,7 +35,7 @@ expand_mode = 1
 [node name="MarginContainer" type="MarginContainer" parent="MenuConfiguracion"]
 layout_mode = 0
 offset_left = 48.760315
-offset_top = 27.199982
+offset_top = 13.199982
 offset_right = 518.69836
 offset_bottom = 351.19998
 theme_override_constants/margin_left = 50
@@ -88,7 +45,7 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuConfiguracion/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 37
+theme_override_constants/separation = 27
 
 [node name="Configuración" type="Label" parent="MenuConfiguracion/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -114,7 +71,7 @@ horizontal_alignment = 1
 
 [node name="HSlider_efecto" type="HSlider" parent="MenuConfiguracion/MarginContainer/VBoxContainer"]
 layout_mode = 2
-max_value = 1.5
+max_value = 1.0
 step = 0.1
 
 [node name="musica" type="Label" parent="MenuConfiguracion/MarginContainer/VBoxContainer"]
@@ -129,19 +86,13 @@ horizontal_alignment = 1
 
 [node name="HSlider_musica" type="HSlider" parent="MenuConfiguracion/MarginContainer/VBoxContainer"]
 layout_mode = 2
-max_value = 1.5
+max_value = 1.0
 step = 0.1
 
-[node name="exit_pop_panel" parent="." instance=ExtResource("3_yycsw")]
-layout_mode = 0
-offset_left = 837.3
-offset_top = 198.30002
-offset_right = 894.4
-offset_bottom = 255.50003
-theme_override_styles/normal = SubResource("StyleBoxFlat_vus77")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_j4ae0")
-theme_override_styles/hover = SubResource("StyleBoxFlat_g5uso")
-text = "x"
+[node name="guardar_cambios" parent="MenuConfiguracion/MarginContainer/VBoxContainer" instance=ExtResource("3_yycsw")]
+layout_mode = 2
+size_flags_vertical = 4
+text = "guardar cambios"
 
 [node name="EjemplosDeAudio" type="Control" parent="."]
 anchors_preset = 0
@@ -157,11 +108,7 @@ stream = ExtResource("6_vus77")
 volume_db = 1.0
 bus = &"SFX"
 
-[node name="GestorSonido" type="Node" parent="."]
-script = ExtResource("7_j4ae0")
-
 [connection signal="drag_ended" from="MenuConfiguracion/MarginContainer/VBoxContainer/HSlider_efecto" to="." method="_on_h_slider_efecto_drag_ended"]
 [connection signal="focus_exited" from="MenuConfiguracion/MarginContainer/VBoxContainer/HSlider_efecto" to="." method="_on_h_slider_efecto_focus_exited"]
 [connection signal="value_changed" from="MenuConfiguracion/MarginContainer/VBoxContainer/HSlider_efecto" to="." method="_on_h_slider_efecto_value_changed"]
 [connection signal="value_changed" from="MenuConfiguracion/MarginContainer/VBoxContainer/HSlider_musica" to="." method="_on_h_slider_musica_value_changed"]
-[connection signal="pressed" from="exit_pop_panel" to="." method="_on_exit_pop_panel_pressed"]
