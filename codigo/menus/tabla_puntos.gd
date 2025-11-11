@@ -1,4 +1,5 @@
 extends TextureRect
+"""
 @onready var top1: Label = $"MarginContainer/VBoxContainer/1"
 @onready var top2: Label = $"MarginContainer/VBoxContainer/2"
 @onready var top3: Label = $"MarginContainer/VBoxContainer/3"
@@ -27,3 +28,4 @@ func ver_tablaR_nivel(nivel_actual:int):
 	var seleccion = GestorDB.db.select_rows("Ranking", "nivel = '" + str(nivel_actual) + "'", ["nombre", "puntuacion"])
 	#print(seleccion)
 	_imprimir_ranking(seleccion)
+"""

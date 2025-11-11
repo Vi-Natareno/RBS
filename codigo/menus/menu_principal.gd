@@ -11,16 +11,13 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 #	pass
-
-func _confirmar_cambios_audio():
-	pass
-
 """ Configuracion de botones """
 func _on_informacion_pressed() -> void:
 	conf_info_screen.show()
 	informacion.show()
 
 func _on_salir_pressed() -> void:
+	Data.db.close_db()
 	get_tree().quit()
 
 func _on_conf_pressed() -> void:
@@ -35,8 +32,7 @@ func _on_nueva_pressed() -> void:
 	"""cambiar nueva_partida a true"""
 	get_tree().change_scene_to_file("res://RBS/escenas/menus/menu_carga.tscn")
 
-func _on_exit_pop_panel_pressed() -> void:
+func _on_cerrar_pressed() -> void:
 	conf_info_screen.hide()
-	menu_configuracion.hide()
-	menu_configuracion.hide()
-	menu_configuracion.reproducir_audio(false)
+	informacion.hide()
+	pass # Replace with function body.
