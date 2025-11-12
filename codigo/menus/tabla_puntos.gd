@@ -1,10 +1,8 @@
 extends TextureRect
-"""
 @onready var top1: Label = $"MarginContainer/VBoxContainer/1"
 @onready var top2: Label = $"MarginContainer/VBoxContainer/2"
 @onready var top3: Label = $"MarginContainer/VBoxContainer/3"
-
-var tabla_top3:Array = [top1, top2, top3]
+@onready var gestor_puntuaciones: Node = $GestorPuntuaciones
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,10 +20,8 @@ func _imprimir_ranking(ranking: Array):
 	top1.text = "1.   " + concat[0]
 	top2.text = "2.   " + concat[1]
 	top3.text = "3.   " + concat[2]
-		
 
-func ver_tablaR_nivel(nivel_actual:int):
-	var seleccion = GestorDB.db.select_rows("Ranking", "nivel = '" + str(nivel_actual) + "'", ["nombre", "puntuacion"])
-	#print(seleccion)
-	_imprimir_ranking(seleccion)
-"""
+func mostrar_tabla(nivel_actual:int):
+	var ranking = gestor_puntuaciones.get_puntuacion(nivel_actual)
+	_imprimir_ranking(ranking)
+	pass

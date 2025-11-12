@@ -255,19 +255,19 @@ offset_bottom = 205.42004
 grow_vertical = 2
 theme_override_constants/separation = 80
 
-[node name="nivel_p1" type="Label" parent="Seleccionar partida/VBoxContainer2"]
+[node name="label_nivel1" type="Label" parent="Seleccionar partida/VBoxContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_ibqej")
 theme_override_font_sizes/font_size = 38
 text = "nivel  -"
 
-[node name="nivel_p2" type="Label" parent="Seleccionar partida/VBoxContainer2"]
+[node name="label_nivel2" type="Label" parent="Seleccionar partida/VBoxContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_ibqej")
 theme_override_font_sizes/font_size = 38
 text = "nivel  -"
 
-[node name="nivel_p3" type="Label" parent="Seleccionar partida/VBoxContainer2"]
+[node name="label_nivel3" type="Label" parent="Seleccionar partida/VBoxContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_ibqej")
 theme_override_font_sizes/font_size = 38
