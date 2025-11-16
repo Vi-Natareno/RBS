@@ -315,20 +315,6 @@ grow_vertical = 2
 texture = ExtResource("1_bg8us")
 expand_mode = 1
 
-[node name="avisoTamNombre" type="Label" parent="Nueva_Partida_Screen/ingresar_nombre_panel"]
-layout_mode = 0
-offset_left = 102.85593
-offset_top = 246.60089
-offset_right = 835.85596
-offset_bottom = 276.6009
-theme_override_colors/font_color = Color(0.3515625, 0.3515625, 0.3515625, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 0
-theme_override_fonts/font = ExtResource("5_ibqej")
-theme_override_font_sizes/font_size = 24
-text = "Ingresa al menos 3 caracteres"
-horizontal_alignment = 1
-
 [node name="MarginContainer" type="MarginContainer" parent="Nueva_Partida_Screen/ingresar_nombre_panel"]
 layout_mode = 1
 anchors_preset = 8
@@ -377,7 +363,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 3
 theme_override_constants/separation = 26
 
-[node name="Cancelar_2stage" parent="Nueva_Partida_Screen/ingresar_nombre_panel/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_xjdwl")]
+[node name="Butcancelarton2" parent="Nueva_Partida_Screen/ingresar_nombre_panel/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_xjdwl")]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 29
@@ -386,14 +372,13 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_sv3ix")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3u2r6")
 text = "    Cancelar   "
 
-[node name="Confirmar_2stage" parent="Nueva_Partida_Screen/ingresar_nombre_panel/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_xjdwl")]
+[node name="Confirmar" parent="Nueva_Partida_Screen/ingresar_nombre_panel/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_xjdwl")]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 29
 text = "    Confirmar   "
 
 [node name="sobreescribir_panel" type="TextureRect" parent="Nueva_Partida_Screen"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -483,7 +468,5 @@ script = ExtResource("7_5yd4a")
 [connection signal="pressed" from="Seleccionar partida/PanelContainer/MarginContainer/Partidas/btn_partida_2" to="." method="_on_btn_partida_2_pressed"]
 [connection signal="pressed" from="Seleccionar partida/PanelContainer/MarginContainer/Partidas/btn_partida_3" to="." method="_on_btn_partida_3_pressed"]
 [connection signal="pressed" from="Seleccionar partida/regresar" to="." method="_on_regresar_pressed"]
-[connection signal="pressed" from="Nueva_Partida_Screen/ingresar_nombre_panel/MarginContainer/VBoxContainer/HBoxContainer/Cancelar_2stage" to="." method="_on_cancelar_2_stage_pressed"]
-[connection signal="pressed" from="Nueva_Partida_Screen/ingresar_nombre_panel/MarginContainer/VBoxContainer/HBoxContainer/Confirmar_2stage" to="." method="_on_confirmar_2_stage_pressed"]
 [connection signal="pressed" from="Nueva_Partida_Screen/sobreescribir_panel/MarginContainer/VBoxContainer/HBoxContainer/Cancelar" to="." method="_on_cancelar_pressed"]
 [connection signal="pressed" from="Nueva_Partida_Screen/sobreescribir_panel/MarginContainer/VBoxContainer/HBoxContainer/Confirmar" to="." method="_on_confirmar_pressed"]

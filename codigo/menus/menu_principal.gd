@@ -26,10 +26,11 @@ func _on_conf_pressed() -> void:
 	menu_configuracion.reproducir_audio()
 	
 func _on_cargar_pressed() -> void:
+	InfoPartida.nueva_partida = false
 	get_tree().change_scene_to_file("res://RBS/escenas/menus/menu_carga.tscn")
 
 func _on_nueva_pressed() -> void:
-	"""cambiar nueva_partida a true"""
+	InfoPartida.nueva_partida = true
 	get_tree().change_scene_to_file("res://RBS/escenas/menus/menu_carga.tscn")
 
 func _on_cerrar_pressed() -> void:

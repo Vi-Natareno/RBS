@@ -138,7 +138,7 @@ grow_vertical = 2
 accessibility_live = 2
 theme_override_constants/separation = 4
 
-[node name="nivel" parent="niveles" instance=ExtResource("1_ic0un")]
+[node name="nivel1" parent="niveles" instance=ExtResource("1_ic0un")]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -176,6 +176,7 @@ offset_left = 680.0
 offset_top = 372.0
 offset_right = 3153.0
 offset_bottom = 433.0
+mouse_filter = 2
 theme_override_constants/separation = 264
 
 [node name="TextureRect" type="TextureRect" parent="puentes"]
@@ -216,7 +217,7 @@ position_smoothing_speed = 4.0
 [connection signal="mouse_entered" from="CanvasLayer/derecha" to="." method="_on_derecha_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/derecha" to="." method="_on_derecha_mouse_exited"]
 
-[editable path="niveles/nivel"]
+[editable path="niveles/nivel1"]
 [editable path="niveles/nivel2"]
 [editable path="niveles/nivel3"]
 [editable path="niveles/nivel4"]
