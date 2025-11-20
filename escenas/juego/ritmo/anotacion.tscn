@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://beeyne5t16agd"]
+
+[ext_resource type="FontFile" uid="uid://dwfhssqwc8jdm" path="res://RBS/recursos/fonts/Bungee-Regular.ttf" id="1_g8cfv"]
+[ext_resource type="Script" uid="uid://dpmuurxxa77ck" path="res://RBS/codigo/juego/ritmo/anotacion.gd" id="1_ld21j"]
+
+[node name="Anotacion" type="Node2D"]
+script = ExtResource("1_ld21j")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.070107
+offset_top = -6.666667
+offset_right = 26.070107
+offset_bottom = 6.666667
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("1_g8cfv")
+theme_override_font_sizes/font_size = 10
+text = "PERFECT!"

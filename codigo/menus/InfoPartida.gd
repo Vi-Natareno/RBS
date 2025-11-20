@@ -3,7 +3,7 @@ extends Node
 var nueva_partida = false
 var id_partida_actual: int = -1
 var partida_actual:Dictionary = {"nombre": "test_default", "nivel": 1}
-var nombres
+var nivel_actual = 1
 
 
 func _ready() -> void:

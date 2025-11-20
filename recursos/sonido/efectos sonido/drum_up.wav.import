@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dc6dk8syd5cun"
+path="res://.godot/imported/drum_up.wav-b371fe9b6730711f2c92ded988c5faed.sample"
+
+[deps]
+
+source_file="res://RBS/recursos/sonido/efectos sonido/drum_up.wav"
+dest_files=["res://.godot/imported/drum_up.wav-b371fe9b6730711f2c92ded988c5faed.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

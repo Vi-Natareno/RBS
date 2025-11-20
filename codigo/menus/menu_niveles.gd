@@ -64,3 +64,5 @@ func _establecer_niveles_bloqueado(nivel_max_desbloqueado: int):
 		candado = "niveles/nivel"+str(i)+"/isla/candado"
 		get_node(ruta).disabled = true
 		get_node(candado).visible = true
+
+#-----------ACTUALIZAR INFOPARTIDAS CUANDO

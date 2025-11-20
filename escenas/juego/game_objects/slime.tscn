@@ -1,0 +1,113 @@
+[gd_scene load_steps=17 format=3 uid="uid://gjvyhusvxcfc"]
+
+[ext_resource type="Texture2D" uid="uid://c2wprnul6hmyv" path="res://RBS/recursos/graficos/sprites/slime_green.png" id="1_th5d6"]
+[ext_resource type="Texture2D" uid="uid://c2tpg3idbn4px" path="res://RBS/recursos/graficos/sprites/slime_purple.png" id="2_ngrwo"]
+[ext_resource type="Script" uid="uid://ddfbdsewckpvu" path="res://RBS/codigo/juego/ritmo/nota_ritmo.gd" id="3_2tdmv"]
+[ext_resource type="Script" uid="uid://bshfu2tlgiwr3" path="res://RBS/codigo/juego/enemigo_base.gd" id="3_ngrwo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrr51"]
+atlas = ExtResource("1_th5d6")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0o5e"]
+atlas = ExtResource("1_th5d6")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu6tq"]
+atlas = ExtResource("1_th5d6")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7vjo"]
+atlas = ExtResource("1_th5d6")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tdmv"]
+atlas = ExtResource("1_th5d6")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uix8p"]
+atlas = ExtResource("1_th5d6")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y0ev"]
+atlas = ExtResource("1_th5d6")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uora1"]
+atlas = ExtResource("2_ngrwo")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0486f"]
+atlas = ExtResource("2_ngrwo")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gnmr"]
+atlas = ExtResource("2_ngrwo")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q002m"]
+atlas = ExtResource("2_ngrwo")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wyuh8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrr51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0o5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wu6tq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7vjo")
+}],
+"loop": true,
+"name": &"green_slime",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tdmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uix8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y0ev")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uora1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0486f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gnmr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q002m")
+}],
+"loop": true,
+"name": &"pink_slime",
+"speed": 10.0
+}]
+
+[node name="green_slime" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_wyuh8")
+animation = &"hit"
+autoplay = "green_slime"
+offset = Vector2(0, -12)
+flip_h = true
+script = ExtResource("3_ngrwo")
+metadata/_edit_lock_ = true
+
+[node name="NotaRitmo" type="Node" parent="."]
+script = ExtResource("3_2tdmv")
