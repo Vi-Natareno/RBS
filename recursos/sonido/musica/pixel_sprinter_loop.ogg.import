@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/pixel_sprinter_loop.ogg-1d74f1c6afd50f9006d7f
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/empacotatron_loop.ogg-e2e5986558a62770a34192a
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

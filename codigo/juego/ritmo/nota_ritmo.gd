@@ -7,8 +7,8 @@ var velocidad: float = 100 #se sobreescribe en midi_event()
 #puntuacion
 var tiempo_llegada:float = 0 #se asigna en el midi ez
 var TOLERANCIA_TIEMPO_ANOTACION := {
-	"PERFECT": 0.1,
-	"OK": 0.18
+	"PERFECT": Ritmo.tolerancia_perfect,
+	"OK": Ritmo.tolerancia_ok
 }
 	
 func _process(delta: float) -> void:
@@ -25,7 +25,7 @@ func pasar_lugar_liberacion(target_pos: Vector2)->bool:
 
 #para probar si se anotó o no al menos dentro de un OK
 func evaluar_golpe_acertado(delta_sum:float)->bool:
-	#print(abs(tiempo_llegada - delta_sum), "          ", TOLERANCIA_TIEMPO_ANOTACION.OK)
+	print("diferencia en golpe acertado: ", abs(tiempo_llegada - delta_sum))
 	return abs(tiempo_llegada - delta_sum) <= TOLERANCIA_TIEMPO_ANOTACION.OK 
 	
 #despues de saber que se acertó un golpe

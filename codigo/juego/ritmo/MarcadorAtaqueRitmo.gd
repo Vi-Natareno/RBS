@@ -6,7 +6,7 @@ const DISTANCIA_INSTANCIACION_X: float = 215  #215 en pixeles, distancia de cami
 
 
 # VELOCIDAD DE NOTA-----------------DB--------------------------------------------------------
-var escala_velocidad:float = 0.5 #separacion
+var escala_velocidad:float = Ritmo.escala_velocidad #separacion
 # ------------Iniciar el midi al tiempo correcto----------------
 var tiempo_transcurrido: float = 0 #suma delta desde el inicio
 var tiempo_desde_MIDI: float = 0 #suma delta desde el inicio del midi
@@ -14,8 +14,8 @@ var inicio_audio: float = Ritmo.inicio_audio #DB
 # AJUSTES DE TIEMPO PARA ANOTACION PERFECT Y OK--------------DB-------------------------------
 #cuando el MIDI player inicia, la nota se instancia hasta la derecha, pero ya necesita estar en el marcador
 #para eso esta el desfase de tiempo
-var desfase_tiempo:float = 1.93 #segundos que tarda la nota en caer en el centro del marcador 
-var tiempo_espera: float = 5.8 #segundos antes de iniciar el midi
+var desfase_tiempo:float = Ritmo.desfase_tiempo #segundos que tarda la nota en caer en el centro del marcador 
+var tiempo_espera: float = Ritmo.tiempo_espera #segundos antes de iniciar el midi
 
 @onready var notas: Dictionary = {
 	#mi, doble superior
@@ -56,15 +56,15 @@ var tiempo_espera: float = 5.8 #segundos antes de iniciar el midi
 @onready var timer: Timer = $Timer
 @onready var enemy_test: AnimatedSprite2D = $Enemigos/enemy_test
 func test_tiempo_llegada():
-	#var centro = enemy_test.position.x < 81.6 and enemy_test.position.x > 81.4 #para sacar el tiempo que tarda en llegar al centro y por ende, los rangos de los laterales
-	#var rango_ok = enemy_test.position.x < 101 and enemy_test.position.x > 61  #rango de 20px aprox
-	var rango_perfect = enemy_test.position.x < 93 and enemy_test.position.x > 70 #rango de 12 px
+	var centro = enemy_test.position.x < 82 and enemy_test.position.x > 80 #para sacar el tiempo que tarda en llegar al centro y por ende, los rangos de los laterales
+	var rango_ok = enemy_test.position.x < 96 and enemy_test.position.x > 69
+	var rango_perfect = enemy_test.position.x < 86 and enemy_test.position.x > 74
 	#var adelantado =  enemy_test.position.x < 126 and enemy_test.position.x > 124
 	#var miss = enemy_test.position.x < 60 and enemy_test.position.x > 45
 	if tiempo_transcurrido >= tiempo_espera-desfase_tiempo:
 		enemy_test.get_node("NotaRitmo").velocidad = DISTANCIA_INSTANCIACION_X * escala_velocidad
-		if rango_perfect:
-			print(timer.wait_time - timer.time_left)
+		if centro:
+			print("test: ",timer.wait_time - timer.time_left)
 			pass
 func inicializar_enemy_test():
 	enemy_test.get_node("NotaRitmo").velocidad = 0
@@ -90,12 +90,12 @@ func _iniciar_audio():
 # INICIO MIDI Y AUDIO---------------------------------------------------------------------------
 
 func _ready() -> void:
-	#inicializar_enemy_test()
+	inicializar_enemy_test()
 	label_puntos.text = str(0)
 	_configurar_midi_audio()
 
 func _process(delta: float) -> void:
-	#test_tiempo_llegada()
+	test_tiempo_llegada()
 	label_puntos.text = str(Puntuador.puntos_graficados)
 	tiempo_desde_MIDI += delta
 	tiempo_transcurrido += delta
@@ -130,7 +130,7 @@ func _verificar_pulsacion_entrada():
 		_evaluar_golpe(notas[50]) #42
 		_evaluar_golpe(notas[49], true) #para no penalizar tanto si no se detecta el doble golpe
 		_graficar_pulsacion($MarcadorAtaque/Marcador_inferior)
-		print(timer.wait_time - timer.time_left)
+		#print(timer.wait_time - timer.time_left)
 	if Input.is_action_pressed("E") and Input.is_action_pressed("I"):
 		_evaluar_golpe(notas[52]) #36
 		_graficar_pulsacion($MarcadorAtaque/Marcador_superior)
