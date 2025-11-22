@@ -10,13 +10,14 @@ var tolerancia_perfect = Arr_Conf[0]["tolerancia_perfect"]
 var tolerancia_ok = Arr_Conf[0]["tolerancia_ok"]
 var midi = Arr_Conf[0]["midi_src"]
 
-var empo_1 := preload("uid://cw5j1l6mes2pc")
-var leap_2 := preload("uid://w536o5ao2svs")
+var slayEvil_1 := preload("uid://x5yaxu0l63uk")
+var empo_2 := preload("uid://cw5j1l6mes2pc")
 var awesome_3 := preload("uid://dt8g5oiddhvom")
-var stageTwo_4 := preload("uid://bfi366ck7tb32")
-var slayEvil_5 := preload("uid://x5yaxu0l63uk")
+var leap_4 := preload("uid://w536o5ao2svs")
+var stageTwo_5 := preload("uid://bfi366ck7tb32")
 
-var audios := [empo_1, leap_2, awesome_3, stageTwo_4, slayEvil_5]
+
+var audios := [slayEvil_1, empo_2, awesome_3, leap_4, stageTwo_5]
 
 func get_audio( nivel: int):
 	for i in audios:

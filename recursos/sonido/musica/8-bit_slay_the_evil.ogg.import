@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/8-bit_slay_the_evil.ogg-b222da6c98a62bae68b3d
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

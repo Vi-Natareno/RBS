@@ -7,8 +7,8 @@ var velocidad: float = 100 #se sobreescribe en midi_event()
 #puntuacion
 var tiempo_llegada:float = 0 #se asigna en el midi ez
 var TOLERANCIA_TIEMPO_ANOTACION := {
-	"PERFECT": 0.08,
-	"OK": 0.15
+	"PERFECT": Ritmo.tolerancia_perfect,
+	"OK": Ritmo.tolerancia_ok
 }
 	
 func _process(delta: float) -> void:
