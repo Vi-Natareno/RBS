@@ -6,16 +6,16 @@ const DISTANCIA_INSTANCIACION_X: float = 215  #215 en pixeles, distancia de cami
 
 
 # VELOCIDAD DE NOTA-----------------DB--------------------------------------------------------
-var escala_velocidad:float = Ritmo.escala_velocidad #separacion
+var escala_velocidad:float = 0.55 #separacion
 # ------------Iniciar el midi al tiempo correcto----------------
 var tiempo_transcurrido: float = 0 #suma delta desde el inicio
 var tiempo_desde_MIDI: float = 0 #suma delta desde el inicio del midi
-var inicio_audio: float = Ritmo.inicio_audio #DB
+var inicio_audio: float = 0 #DB +1 6.4
 # AJUSTES DE TIEMPO PARA ANOTACION PERFECT Y OK--------------DB-------------------------------
 #cuando el MIDI player inicia, la nota se instancia hasta la derecha, pero ya necesita estar en el marcador
 #para eso esta el desfase de tiempo
-var desfase_tiempo:float = Ritmo.desfase_tiempo #segundos que tarda la nota en caer en el centro del marcador 
-var tiempo_espera: float = Ritmo.tiempo_espera #segundos antes de iniciar el midi
+var desfase_tiempo:float = 1.8 #segundos que tarda la nota en caer en el centro del marcador 
+var tiempo_espera: float = 6.3 #segundos antes de iniciar el midi
 
 @onready var notas: Dictionary = {
 	#mi, doble superior
@@ -63,12 +63,12 @@ func test_tiempo_llegada():
 	#var miss = enemy_test.position.x < 60 and enemy_test.position.x > 45
 	if tiempo_transcurrido >= tiempo_espera-desfase_tiempo:
 		enemy_test.get_node("NotaRitmo").velocidad = DISTANCIA_INSTANCIACION_X * escala_velocidad
-		if centro:
-			print("test: ",timer.wait_time - timer.time_left)
+		if rango_perfect:
+			print("enemy test: ",timer.wait_time - timer.time_left)
 			pass
 func inicializar_enemy_test():
 	enemy_test.get_node("NotaRitmo").velocidad = 0
-	enemy_test.play("green_slime")
+	enemy_test.play("pink_slime")
 """pruebas tiempo -------------------------------------------------"""
 
 # INICIO MIDI Y AUDIO---------------------------------------------------------------------------
@@ -83,19 +83,22 @@ func _iniciar_midi():
 			tiempo_desde_MIDI = 0
 			$Musica/MidiPlayer.play()
 			$Timer.start()
+			
 #####---- ESTE ES QUE EL TOMA EN CUENTA EL DESFASE DE TIEMPO DE LA NOTA -------##########
 func _iniciar_audio():
 	if not $Musica/AudioStreamPlayer2D.playing:
 		$Musica/AudioStreamPlayer2D.play(inicio_audio)
+		
 # INICIO MIDI Y AUDIO---------------------------------------------------------------------------
 
 func _ready() -> void:
 	inicializar_enemy_test()
 	label_puntos.text = str(0)
 	_configurar_midi_audio()
-
+	
 func _process(delta: float) -> void:
-	test_tiempo_llegada()
+	
+	#test_tiempo_llegada()
 	label_puntos.text = str(Puntuador.puntos_graficados)
 	tiempo_desde_MIDI += delta
 	tiempo_transcurrido += delta

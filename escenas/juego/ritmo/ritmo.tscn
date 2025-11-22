@@ -239,7 +239,7 @@ stream = ExtResource("8_wuqkh")
 bus = &"Musica"
 
 [node name="MidiPlayer" parent="Musica" instance=ExtResource("9_wuqkh")]
-file = "res://RBS/recursos/sonido/midi/awesomeness_MIDI.mid"
+file = "res://RBS/recursos/sonido/midi/slay_the_evil_MIDI.mid"
 load_all_voices_from_soundfont = false
 
 [node name="Timer" type="Timer" parent="."]
