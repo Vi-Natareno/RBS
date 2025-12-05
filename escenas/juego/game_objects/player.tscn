@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b8txummer78qk"]
+[gd_scene load_steps=18 format=3 uid="uid://b8txummer78qk"]
 
 [ext_resource type="Script" uid="uid://gg7g352wrlf" path="res://RBS/codigo/juego/player.gd" id="1_ud4jo"]
 [ext_resource type="Texture2D" uid="uid://csf1ih7mw3mkh" path="res://RBS/recursos/graficos/sprites/canelita.png" id="1_wek61"]
@@ -18,6 +18,10 @@ region = Rect2(64, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_cfigm"]
 atlas = ExtResource("1_wek61")
 region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grp1v"]
+atlas = ExtResource("1_wek61")
+region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wek61"]
 atlas = ExtResource("1_wek61")
@@ -68,7 +72,15 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 6.0
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grp1v")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -101,8 +113,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_xcxd0")
 }],
 "loop": true,
-"name": &"runing",
-"speed": 7.0
+"name": &"running",
+"speed": 9.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rhfpu"]
@@ -111,14 +123,14 @@ height = 10.5529175
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
+collision_layer = 33
 script = ExtResource("1_ud4jo")
 
 [node name="Animacion" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12.065735)
 sprite_frames = SubResource("SpriteFrames_v5y1t")
-animation = &"runing"
-autoplay = "runing"
-frame_progress = 0.97687167
+animation = &"point_screen"
+autoplay = "idle"
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
 visible = false

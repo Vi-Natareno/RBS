@@ -1,51 +1,52 @@
-[gd_scene load_steps=16 format=3 uid="uid://gjvyhusvxcfc"]
+[gd_scene load_steps=18 format=3 uid="uid://c662tpqtuh2oi"]
 
-[ext_resource type="Texture2D" uid="uid://c2wprnul6hmyv" path="res://RBS/recursos/graficos/sprites/slime_green.png" id="1_th5d6"]
-[ext_resource type="Texture2D" uid="uid://c2tpg3idbn4px" path="res://RBS/recursos/graficos/sprites/slime_purple.png" id="2_ngrwo"]
-[ext_resource type="Script" uid="uid://ddfbdsewckpvu" path="res://RBS/codigo/juego/ritmo/nota_ritmo.gd" id="3_2tdmv"]
+[ext_resource type="Texture2D" uid="uid://c2wprnul6hmyv" path="res://RBS/recursos/graficos/sprites/slime_green.png" id="1_6xry3"]
+[ext_resource type="Texture2D" uid="uid://c2tpg3idbn4px" path="res://RBS/recursos/graficos/sprites/slime_purple.png" id="2_ttjud"]
+[ext_resource type="Script" uid="uid://bv0vl6q4wtn27" path="res://RBS/codigo/juego/enemigo.gd" id="3_4hymv"]
+[ext_resource type="Script" uid="uid://bk32xnftjx27c" path="res://RBS/codigo/juego/danio_enemigo.gd" id="4_6xry3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mrr51"]
-atlas = ExtResource("1_th5d6")
+atlas = ExtResource("1_6xry3")
 region = Rect2(0, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q0o5e"]
-atlas = ExtResource("1_th5d6")
+atlas = ExtResource("1_6xry3")
 region = Rect2(24, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wu6tq"]
-atlas = ExtResource("1_th5d6")
+atlas = ExtResource("1_6xry3")
 region = Rect2(48, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7vjo"]
-atlas = ExtResource("1_th5d6")
+atlas = ExtResource("1_6xry3")
 region = Rect2(72, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2tdmv"]
-atlas = ExtResource("1_th5d6")
+atlas = ExtResource("1_6xry3")
 region = Rect2(48, 48, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uix8p"]
-atlas = ExtResource("1_th5d6")
+atlas = ExtResource("1_6xry3")
 region = Rect2(48, 48, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2y0ev"]
-atlas = ExtResource("1_th5d6")
+atlas = ExtResource("1_6xry3")
 region = Rect2(48, 48, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uora1"]
-atlas = ExtResource("2_ngrwo")
+atlas = ExtResource("2_ttjud")
 region = Rect2(0, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0486f"]
-atlas = ExtResource("2_ngrwo")
+atlas = ExtResource("2_ttjud")
 region = Rect2(24, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2gnmr"]
-atlas = ExtResource("2_ngrwo")
+atlas = ExtResource("2_ttjud")
 region = Rect2(48, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q002m"]
-atlas = ExtResource("2_ngrwo")
+atlas = ExtResource("2_ttjud")
 region = Rect2(72, 24, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wyuh8"]
@@ -99,12 +100,37 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttjud"]
+size = Vector2(8.439398, 8.8239765)
+
 [node name="green_slime" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_wyuh8")
 animation = &"green_slime"
 autoplay = "green_slime"
 offset = Vector2(0, -12)
 flip_h = true
+script = ExtResource("3_4hymv")
 
-[node name="NotaRitmo" type="Node" parent="."]
-script = ExtResource("3_2tdmv")
+[node name="collsn_der" type="RayCast2D" parent="."]
+position = Vector2(0.14826202, -5.229308)
+target_position = Vector2(10.906483, -0.02453041)
+collision_mask = 8
+collide_with_areas = true
+
+[node name="collsn_izq" type="RayCast2D" parent="."]
+position = Vector2(0.14826202, -5.229308)
+target_position = Vector2(-11.235443, -0.23292542)
+collision_mask = 8
+collide_with_areas = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 128
+script = ExtResource("4_6xry3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.043717384, -5.9032087)
+shape = SubResource("RectangleShape2D_ttjud")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

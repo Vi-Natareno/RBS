@@ -9,14 +9,15 @@ var inicio_audio = Arr_Conf[0]["inicio_audio"]
 var tolerancia_perfect = Arr_Conf[0]["tolerancia_perfect"]
 var tolerancia_ok = Arr_Conf[0]["tolerancia_ok"]
 var midi = Arr_Conf[0]["midi_src"]
+var tiempo_finalizacion = Arr_Conf[0]["tiempo_finalizacion"]
 
 var slayEvil_1 := preload("uid://x5yaxu0l63uk")
 var empo_2 := preload("uid://cw5j1l6mes2pc")
 var awesome_3 := preload("uid://dt8g5oiddhvom")
 var leap_4 := preload("uid://w536o5ao2svs")
-var stageTwo_5 := preload("uid://bfi366ck7tb32")
+var stageTwo_5 = preload("uid://drpn0y3jhu0g")
 
-
+#para ritmo
 var audios := [slayEvil_1, empo_2, awesome_3, leap_4, stageTwo_5]
 
 func get_audio( nivel: int):

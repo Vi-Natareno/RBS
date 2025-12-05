@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ctbounrk7uwki"
+path="res://.godot/imported/MachinePowerOff.ogg-8230b088e8e27a89d26152ad11c3786d.oggvorbisstr"
+
+[deps]
+
+source_file="res://RBS/recursos/sonido/efectos sonido/MachinePowerOff.ogg"
+dest_files=["res://.godot/imported/MachinePowerOff.ogg-8230b088e8e27a89d26152ad11c3786d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

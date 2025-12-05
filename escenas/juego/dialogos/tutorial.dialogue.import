@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bwx7pb50r0mpu"
+path="res://.godot/imported/tutorial.dialogue-5e051c682d3d96e18de5c868390af640.tres"
+
+[deps]
+
+source_file="res://RBS/escenas/juego/dialogos/tutorial.dialogue"
+dest_files=["res://.godot/imported/tutorial.dialogue-5e051c682d3d96e18de5c868390af640.tres"]
+
+[params]
+
+defaults=true

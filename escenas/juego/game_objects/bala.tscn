@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dadrmyf6dksby"]
+
+[ext_resource type="Script" uid="uid://bk32xnftjx27c" path="res://RBS/codigo/juego/danio_enemigo.gd" id="1_3i4ps"]
+[ext_resource type="Script" uid="uid://bawiqkwhxreja" path="res://RBS/codigo/juego/bala.gd" id="1_8usc0"]
+[ext_resource type="Texture2D" uid="uid://c5udr6nno5165" path="res://RBS/recursos/graficos/sprites/bala.png" id="1_belty"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8usc0"]
+radius = 2.7544346
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_3i4ps")
+
+[node name="Bala" type="Sprite2D" parent="."]
+position = Vector2(0.06724739, -3.3825006)
+scale = Vector2(0.5608258, 0.5608258)
+texture = ExtResource("1_belty")
+
+[node name="bala_shape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.341855)
+shape = SubResource("CircleShape2D_8usc0")
+
+[node name="bala" type="Node" parent="."]
+script = ExtResource("1_8usc0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -11,7 +11,6 @@ extends Control
 @onready var nuevo_nombre: LineEdit = $Nueva_Partida_Screen/ingresar_nombre_panel/MarginContainer/VBoxContainer/LineEdit
 
 func _ready() -> void:
-	InfoPartida.nueva_partida=true
 	_actualizar_titulo()
 	_mostrar_slots_activos()
 	_mostrar_info_partida()

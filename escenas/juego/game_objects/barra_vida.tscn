@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dny6wy5esmfnp"]
+[gd_scene load_steps=3 format=3 uid="uid://dny6wy5esmfnp"]
 
+[ext_resource type="Script" uid="uid://cbnys0mjoihso" path="res://RBS/escenas/juego/barra_vida.gd" id="1_fcld0"]
 [ext_resource type="PackedScene" uid="uid://drp5xfc1hcil4" path="res://RBS/escenas/juego/game_objects/corazon.tscn" id="1_iwww8"]
 
 [node name="barra_vida" type="Node2D"]
+script = ExtResource("1_fcld0")
 
-[node name="corazonq" parent="." instance=ExtResource("1_iwww8")]
+[node name="corazon1" parent="." instance=ExtResource("1_iwww8")]
 
 [node name="corazon2" parent="." instance=ExtResource("1_iwww8")]
 position = Vector2(18, 0)
@@ -20,3 +22,9 @@ position = Vector2(72, 0)
 
 [node name="corazon6" parent="." instance=ExtResource("1_iwww8")]
 position = Vector2(90, 0)
+
+[node name="corazon7" parent="." instance=ExtResource("1_iwww8")]
+position = Vector2(107.60816, 0)
+
+[node name="corazon8" parent="." instance=ExtResource("1_iwww8")]
+position = Vector2(125.098625, 0)

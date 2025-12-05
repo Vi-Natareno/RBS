@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bf8gv42kkvulg"]
+[gd_scene load_steps=16 format=3 uid="uid://bf8gv42kkvulg"]
 
+[ext_resource type="Script" uid="uid://cbpoqtc5varg3" path="res://RBS/escenas/puntuacion/pantalla_puntuacion.gd" id="1_ier4g"]
 [ext_resource type="PackedScene" uid="uid://b8txummer78qk" path="res://RBS/escenas/juego/game_objects/player.tscn" id="1_o546t"]
 [ext_resource type="Texture2D" uid="uid://de1vowvf55sno" path="res://RBS/recursos/graficos/fondos/fondo_puntuacion.png" id="1_pg4g1"]
 [ext_resource type="FontFile" uid="uid://dwfhssqwc8jdm" path="res://RBS/recursos/fonts/Bungee-Regular.ttf" id="2_1hfnt"]
@@ -9,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://il2td8f3ikut" path="res://RBS/recursos/graficos/fondos/panel_jugador.svg" id="5_sqmwt"]
 [ext_resource type="FontFile" uid="uid://dg5kc21qy1ihn" path="res://RBS/recursos/fonts/DynaPuff-VariableFont_wdth,wght.ttf" id="5_use5a"]
 [ext_resource type="PackedScene" uid="uid://dny6wy5esmfnp" path="res://RBS/escenas/juego/game_objects/barra_vida.tscn" id="8_use5a"]
+[ext_resource type="Script" uid="uid://caljer8sr8rgi" path="res://RBS/codigo/menus/GestorPuntuaciones.gd" id="11_v3qm8"]
+[ext_resource type="Script" uid="uid://cpwli1wm4o841" path="res://RBS/codigo/menus/GestorPartidas.gd" id="12_aqfo4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_use5a"]
 bg_color = Color(0.38431373, 0.63529414, 0.85882354, 1)
@@ -21,6 +24,23 @@ expand_margin_top = 10.0
 expand_margin_right = 25.0
 expand_margin_bottom = 10.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ier4g"]
+bg_color = Color(0.5, 0.5, 0.5, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 6
+border_color = Color(0.4375, 0.4375, 0.4375, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_size = 6
+shadow_offset = Vector2(2, 5)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_use5a"]
+
 [node name="PantallaPuntuacion" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -28,6 +48,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ier4g")
 
 [node name="Pantalla" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(1280, 720)
@@ -165,11 +186,12 @@ offset_top = 607.43225
 offset_right = 1243.9921
 offset_bottom = 688.43225
 theme_override_font_sizes/font_size = 30
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ier4g")
 text = "continuar"
 
 [node name="barra_vida" parent="Pantalla" instance=ExtResource("8_use5a")]
 position = Vector2(235, 365)
-scale = Vector2(4.126498, 4.126498)
+scale = Vector2(3.0531478, 3.0531478)
 
 [node name="pts_finales" type="Label" parent="."]
 layout_mode = 0
@@ -185,6 +207,21 @@ theme_override_font_sizes/font_size = 45
 text = "12836192360"
 horizontal_alignment = 1
 
+[node name="Area2D" type="StaticBody2D" parent="."]
+collision_layer = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(938.0234, 514.2721)
+shape = SubResource("WorldBoundaryShape2D_use5a")
+
 [node name="Player" parent="." instance=ExtResource("1_o546t")]
 position = Vector2(938.3446, 513.6785)
 scale = Vector2(16.041182, 16.041182)
+
+[node name="GestorPuntuaciones" type="Node" parent="."]
+script = ExtResource("11_v3qm8")
+
+[node name="GestorPartidas" type="Node" parent="."]
+script = ExtResource("12_aqfo4")
+
+[connection signal="pressed" from="Pantalla/continuar" to="." method="_on_continuar_pressed"]

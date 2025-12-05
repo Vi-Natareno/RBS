@@ -1,10 +1,11 @@
 extends Node2D
 const SLIME = preload("uid://gjvyhusvxcfc")
 @onready var enemigos: Node = $Enemigos
-@onready var label_puntos: Label = $GameObjects/HUD/puntos
+@onready var label_puntos: Label = $HUD/puntos
 const DISTANCIA_INSTANCIACION_X: float = 215  #215 en pixeles, distancia de camino hasta el marcador
-
-
+var timer := Timer.new()
+#win
+var tiempo_finalizacion = Ritmo.tiempo_finalizacion
 # VELOCIDAD DE NOTA-----------------DB--------------------------------------------------------
 var escala_velocidad:float = Ritmo.escala_velocidad #separacion
 # ------------Iniciar el midi al tiempo correcto----------------
@@ -53,6 +54,7 @@ var tiempo_espera: float = Ritmo.tiempo_espera #segundos antes de iniciar el mid
 }
 
 """pruebas tiempo--------------------------------------------------"""
+"""
 @onready var timer: Timer = $Timer
 @onready var enemy_test: AnimatedSprite2D = $Enemigos/enemy_test
 func test_tiempo_llegada():
@@ -67,6 +69,7 @@ func test_tiempo_llegada():
 func inicializar_enemy_test():
 	enemy_test.get_node("NotaRitmo").velocidad = 0
 	enemy_test.play("pink_slime")
+"""
 """pruebas tiempo -------------------------------------------------"""
 
 # INICIO MIDI Y AUDIO---------------------------------------------------------------------------
@@ -84,21 +87,37 @@ func _iniciar_midi():
 			
 #####---- ESTE ES QUE EL TOMA EN CUENTA EL DESFASE DE TIEMPO DE LA NOTA -------##########
 func _iniciar_audio():
-	if not $Musica/AudioStreamPlayer2D.playing:
+	if not $Musica/AudioStreamPlayer2D.playing and InfoPartida.audio_active == true:
 		$Musica/AudioStreamPlayer2D.play(Ritmo.inicio_audio)
 		
 # INICIO MIDI Y AUDIO---------------------------------------------------------------------------
 
 func _ready() -> void:
-	inicializar_enemy_test()
+	InfoPartida.audio_active = true
+	InfoPartida.is_platform = false
+	Puntuador.puntos = 0
+	Puntuador.puntos_graficados = 0
+	#inicializar_enemy_test()
 	label_puntos.text = str(0)
+	add_child(timer)
+	timer.wait_time = 3
+	timer.one_shot = true
+	timer.timeout.connect(_on_timer_timeout)
 	_configurar_midi_audio()
-	
+
+func _on_timer_timeout():
+	get_tree().change_scene_to_file("res://RBS/escenas/puntuacion/pantalla_puntuacion.tscn")
+	pass
+
 func _process(delta: float) -> void:
-	test_tiempo_llegada()
+	#test_tiempo_llegada()
+	#print(timer.time_left)
 	label_puntos.text = str(Puntuador.puntos_graficados)
 	tiempo_desde_MIDI += delta
 	tiempo_transcurrido += delta
+	if tiempo_transcurrido >= tiempo_finalizacion:
+		tiempo_finalizacion = 10000
+		timer.start()
 	_verificar_pulsacion_entrada()
 	_evaluar_golpe_no_anotado()
 	_iniciar_audio()

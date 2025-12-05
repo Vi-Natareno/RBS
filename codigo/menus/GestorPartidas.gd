@@ -14,3 +14,7 @@ func get_partida(no_partida:int)->Dictionary:
 func nueva_partida(nombre: String, id: int): # func actualizar_archivo_partidas
 	Data.db.update_rows("Partidas", "id = '" + str(id) + "'", {"nombre": nombre,"nivel": 1})
 	pass
+
+func desbloquear_sig_nivel(nombre: String, nuevo_nivel: int):
+	Data.db.update_rows("Partidas", "nombre = '" + nombre + "'", {"nivel": nuevo_nivel})
+	pass
