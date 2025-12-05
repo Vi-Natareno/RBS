@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://brilulh8xgj2n"]
+[gd_scene load_steps=9 format=3 uid="uid://brilulh8xgj2n"]
 
+[ext_resource type="Script" uid="uid://yotenbsn0h3d" path="res://RBS/codigo/juego/plataformas/menu_pausa.gd" id="1_ifta6"]
 [ext_resource type="Texture2D" uid="uid://beeaawhrlpk0l" path="res://RBS/recursos/graficos/fondos/menuCarga.png" id="1_p84sb"]
 [ext_resource type="FontFile" uid="uid://dg5kc21qy1ihn" path="res://RBS/recursos/fonts/DynaPuff-VariableFont_wdth,wght.ttf" id="2_y0vtk"]
 [ext_resource type="PackedScene" uid="uid://ckc4rd6wxx3gm" path="res://RBS/escenas/button.tscn" id="3_2frqk"]
@@ -43,6 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ifta6")
 
 [node name="Conf_Info_Screen" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1280, 720)
@@ -146,10 +148,10 @@ expand_mode = 5
 
 [node name="Instrucciones" type="Label" parent="."]
 layout_mode = 0
-offset_left = 469.15637
-offset_top = 439.4927
-offset_right = 633.1564
-offset_bottom = 488.4927
+offset_left = 468.15637
+offset_top = 450.4927
+offset_right = 823.1564
+offset_bottom = 499.4927
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6901961)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 1
@@ -157,20 +159,7 @@ theme_override_constants/outline_size = 1
 theme_override_constants/shadow_outline_size = 4
 theme_override_fonts/font = ExtResource("2_y0vtk")
 theme_override_font_sizes/font_size = 18
-text = "Saltar - espacio
-moverse - flechas"
+text = "Saltar - espacio              moverse - flechas"
 
-[node name="Instrucciones2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 661.7662
-offset_top = 438.12668
-offset_right = 825.7662
-offset_bottom = 487.12668
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6901961)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/outline_size = 1
-theme_override_constants/shadow_outline_size = 4
-theme_override_fonts/font = ExtResource("2_y0vtk")
-theme_override_font_sizes/font_size = 18
-text = "Golpear - w,  d,   j,   i"
+[connection signal="pressed" from="regresar" to="." method="_on_regresar_pressed"]
+[connection signal="pressed" from="reanudar2" to="." method="_on_reanudar_2_pressed"]

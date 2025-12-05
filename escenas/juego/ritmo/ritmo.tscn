@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://b8txummer78qk" path="res://RBS/escenas/juego/game_objects/player.tscn" id="2_p5u5c"]
 [ext_resource type="PackedScene" uid="uid://bke1q704fqihh" path="res://RBS/escenas/juego/game_objects/ange.tscn" id="3_p5u5c"]
 [ext_resource type="PackedScene" uid="uid://buwwc0yyestpi" path="res://RBS/escenas/juego/hud.tscn" id="4_7lm3k"]
-[ext_resource type="PackedScene" uid="uid://gjvyhusvxcfc" path="res://RBS/escenas/juego/game_objects/slime.tscn" id="5_yejko"]
 [ext_resource type="Texture2D" uid="uid://cjdwh07rkyk7" path="res://RBS/recursos/graficos/sprites/marcador_ataque.png" id="6_wuqkh"]
 [ext_resource type="AudioStream" uid="uid://dc6dk8syd5cun" path="res://RBS/recursos/sonido/efectos sonido/drum_up.wav" id="7_wuqkh"]
 [ext_resource type="AudioStream" uid="uid://w536o5ao2svs" path="res://RBS/recursos/sonido/musica/leap.WAV" id="8_wuqkh"]
 [ext_resource type="PackedScene" uid="uid://cuyd1qv0pn26e" path="res://addons/midi/MidiPlayer.tscn" id="9_wuqkh"]
+[ext_resource type="Script" uid="uid://cpwli1wm4o841" path="res://RBS/codigo/menus/GestorPartidas.gd" id="10_wuqkh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7lm3k"]
 texture = ExtResource("1_0gjib")
@@ -250,11 +250,8 @@ one_shot = true
 
 [node name="Enemigos" type="Node" parent="."]
 
-[node name="enemy_test" parent="Enemigos" instance=ExtResource("5_yejko")]
-visible = false
-z_index = 50
-position = Vector2(296.378, 113)
-animation = &"pink_slime"
+[node name="GestorPartidas" type="Node" parent="."]
+script = ExtResource("10_wuqkh")
 
 [connection signal="midi_event" from="Musica/MidiPlayer" to="." method="_on_midi_player_midi_event"]
 

@@ -1,6 +1,6 @@
 extends Area2D
 var timer := Timer.new()
-var efecto := AudioStreamPlayerADSR.new()
+var efecto := AudioStreamPlayer.new()
 const HURT = preload("uid://dsje4ej475u2l")
 
 func _ready() -> void:

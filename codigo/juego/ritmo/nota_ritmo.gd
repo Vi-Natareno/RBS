@@ -3,7 +3,7 @@ extends Node
 @onready var barra_vida = $"../../../HUD/barra_vida"
 var timer := Timer.new()
 const MACHINE_POWER_OFF = preload("uid://ctbounrk7uwki")
-var efecto := AudioStreamPlayerADSR.new()
+var efecto := AudioStreamPlayer.new()
 #posicion
 const LUGAR_LIBERACION = 60
 var velocidad: float = 0 #se sobreescribe en midi_event()

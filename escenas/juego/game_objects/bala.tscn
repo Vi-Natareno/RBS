@@ -5,9 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://c5udr6nno5165" path="res://RBS/recursos/graficos/sprites/bala.png" id="1_belty"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8usc0"]
-radius = 2.7544346
+radius = 1.9211684
 
 [node name="Area2D" type="Area2D"]
+position = Vector2(0, 0.0009756088)
 script = ExtResource("1_3i4ps")
 
 [node name="Bala" type="Sprite2D" parent="."]

@@ -1,6 +1,6 @@
 extends Node
 const ANOTACION = preload("uid://beeyne5t16agd")
-@onready var anotacion_labels =  get_node("/root/ritmo_1/MarcadorAtaque/Anotacion_labels")
+@onready var anotacion_labels
 var puntos:int = 0
 var puntos_graficados = 0
 enum Tipo_Anotacion {PERFECT, OK, MISS}

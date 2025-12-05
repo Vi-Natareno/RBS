@@ -93,6 +93,9 @@ func _iniciar_audio():
 # INICIO MIDI Y AUDIO---------------------------------------------------------------------------
 
 func _ready() -> void:
+	print(get_parent().get_node("ritmo_1"))
+	if get_parent().get_node("ritmo_1") == $".":
+		Puntuador.anotacion_labels = get_parent().get_node("ritmo_1").get_node("MarcadorAtaque/Anotacion_labels")
 	InfoPartida.audio_active = true
 	InfoPartida.is_platform = false
 	Puntuador.puntos = 0

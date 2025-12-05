@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dny6wy5esmfnp" path="res://RBS/escenas/juego/game_objects/barra_vida.tscn" id="1_6y5md"]
 [ext_resource type="FontFile" uid="uid://dg5kc21qy1ihn" path="res://RBS/recursos/fonts/DynaPuff-VariableFont_wdth,wght.ttf" id="2_caoif"]
-[ext_resource type="PackedScene" uid="uid://brilulh8xgj2n" path="res://RBS/escenas/juego/game_objects/menu_pausa.tscn" id="3_4spye"]
+[ext_resource type="PackedScene" uid="uid://brilulh8xgj2n" path="res://RBS/escenas/menus/menu_pausa.tscn" id="3_4spye"]
 
 [node name="HUD" type="CanvasLayer"]
 
