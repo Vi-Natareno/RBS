@@ -9,6 +9,7 @@ var camara_pos_limite = Vector2(2744,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#print(InfoPartida.partida_actual["nivel"])
 	_establecer_niveles_bloqueado(InfoPartida.partida_actual["nivel"])
 	#inicializar GUI
 	_inicializar_GUI()
@@ -60,9 +61,23 @@ func _establecer_niveles_bloqueado(nivel_max_desbloqueado: int):
 	var ruta = ""
 	var candado = ""
 	for i in range(nivel_max_desbloqueado+1, NIVEL_MAX_CREADO+1):
-		ruta = "niveles/nivel"+str(i)+"/isla/nivel_n"
-		candado = "niveles/nivel"+str(i)+"/isla/candado"
+		ruta = "niveles/nivel"+str(i)+"/nivel"+str(i)+""
+		candado = "niveles/nivel"+str(i)+"/candado"
 		get_node(ruta).disabled = true
 		get_node(candado).visible = true
 
 #-----------ACTUALIZAR INFOPARTIDAS CUANDO
+
+
+func _on_nivel_1_pressed() -> void:
+	InfoPartida.set_jugar_nivel()
+	InfoPartida.nivel_actual = 1
+	get_tree().change_scene_to_file("res://RBS/escenas/juego/plataformas/plat_1.tscn")
+	pass # Replace with function body.
+
+
+func _on_nivel_2_pressed() -> void:
+	InfoPartida.set_jugar_nivel()
+	InfoPartida.nivel_actual = 2
+	get_tree().change_scene_to_file("res://RBS/escenas/juego/plataformas/plat_2.tscn")
+	pass # Replace with function body.

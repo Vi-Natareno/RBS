@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://5vepe5e5u8hb"]
+[gd_scene load_steps=15 format=3 uid="uid://5vepe5e5u8hb"]
 
-[ext_resource type="PackedScene" uid="uid://dbprv81d64y5a" path="res://RBS/escenas/menus/nivel.tscn" id="1_ic0un"]
 [ext_resource type="Script" uid="uid://djvs1qt7agg4t" path="res://RBS/codigo/menus/menu_niveles.gd" id="1_pvff8"]
 [ext_resource type="FontFile" uid="uid://dwfhssqwc8jdm" path="res://RBS/recursos/fonts/Bungee-Regular.ttf" id="2_b8lyn"]
 [ext_resource type="PackedScene" uid="uid://ckc4rd6wxx3gm" path="res://RBS/escenas/button.tscn" id="2_me7iy"]
 [ext_resource type="PackedScene" uid="uid://dldluepilye5k" path="res://RBS/escenas/menus/tabla_puntos.tscn" id="5_fhor2"]
+[ext_resource type="Texture2D" uid="uid://bqlhdl188qvll" path="res://RBS/recursos/graficos/fondos/isla.svg" id="6_x037x"]
+[ext_resource type="Texture2D" uid="uid://dogisfq0tlnod" path="res://RBS/recursos/graficos/fondos/candado.svg" id="7_52weq"]
 [ext_resource type="Texture2D" uid="uid://dtqh7l5a7qhnq" path="res://RBS/recursos/graficos/fondos/puente.svg" id="7_x037x"]
 [ext_resource type="Texture2D" uid="uid://cv71yo0lewff5" path="res://RBS/recursos/graficos/fondos/mover_camara.png" id="8_x037x"]
 
@@ -29,6 +30,66 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.83203125, 0.4984219, 0.11050415, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_size = 6
+shadow_offset = Vector2(2, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x263p"]
+bg_color = Color(0.8125, 0.022216797, 0.74330455, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 20
+border_color = Color(0.62890625, 0, 0.5628885, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_size = 6
+shadow_offset = Vector2(2, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjps1"]
+bg_color = Color(0.8117647, 0.023529412, 0.74509805, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 6
+border_color = Color(0.627451, 0, 0.5647059, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_size = 6
+shadow_offset = Vector2(2, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dy5f7"]
+bg_color = Color(0.45057678, 0.5494886, 0.75390625, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 20
+border_color = Color(0.29803923, 0.44059435, 0.6862745, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_size = 6
+shadow_offset = Vector2(2, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5asx6"]
+bg_color = Color(0.99, 0.029699972, 0.90997535, 0.5686275)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 20
+border_color = Color(0.671875, 0.03149414, 0.60783666, 0.6666667)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -136,45 +197,237 @@ offset_bottom = 609.0
 grow_horizontal = 2
 grow_vertical = 2
 accessibility_live = 2
-theme_override_constants/separation = 4
+theme_override_constants/separation = 400
 
-[node name="nivel1" parent="niveles" instance=ExtResource("1_ic0un")]
+[node name="nivel1" type="TextureRect" parent="niveles"]
 layout_mode = 2
-size_flags_horizontal = 3
+mouse_filter = 2
+texture = ExtResource("6_x037x")
 
-[node name="nivel2" parent="niveles" instance=ExtResource("1_ic0un")]
+[node name="nivel1" parent="niveles/nivel1" instance=ExtResource("2_me7iy")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.5
+offset_top = -64.25
+offset_right = 69.5
+offset_bottom = 64.25
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_x263p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cjps1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dy5f7")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_5asx6")
+text = "1"
+
+[node name="candado" type="TextureRect" parent="niveles/nivel1"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.5
+offset_top = -48.0
+offset_right = 30.5
+offset_bottom = 30.771973
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_52weq")
+expand_mode = 1
+
+[node name="nivel2" type="TextureRect" parent="niveles"]
 layout_mode = 2
-size_flags_horizontal = 3
+mouse_filter = 2
+texture = ExtResource("6_x037x")
 
-[node name="nivel_n" parent="niveles/nivel2/isla" index="0"]
+[node name="nivel2" parent="niveles/nivel2" instance=ExtResource("2_me7iy")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.5
+offset_top = -64.25
+offset_right = 69.5
+offset_bottom = 64.25
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_x263p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cjps1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dy5f7")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_5asx6")
 text = "2"
 
-[node name="nivel3" parent="niveles" instance=ExtResource("1_ic0un")]
+[node name="candado" type="TextureRect" parent="niveles/nivel2"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.5
+offset_top = -48.0
+offset_right = 30.5
+offset_bottom = 30.771973
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_52weq")
+expand_mode = 1
+
+[node name="nivel3" type="TextureRect" parent="niveles"]
 layout_mode = 2
-size_flags_horizontal = 3
+mouse_filter = 2
+texture = ExtResource("6_x037x")
 
-[node name="nivel_n" parent="niveles/nivel3/isla" index="0"]
-text = "3"
+[node name="nivel3" parent="niveles/nivel3" instance=ExtResource("2_me7iy")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.5
+offset_top = -64.25
+offset_right = 69.5
+offset_bottom = 64.25
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_x263p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cjps1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dy5f7")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_5asx6")
+text = "3
+"
 
-[node name="nivel4" parent="niveles" instance=ExtResource("1_ic0un")]
+[node name="candado" type="TextureRect" parent="niveles/nivel3"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.5
+offset_top = -48.0
+offset_right = 30.5
+offset_bottom = 30.771973
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_52weq")
+expand_mode = 1
+
+[node name="nivel4" type="TextureRect" parent="niveles"]
 layout_mode = 2
-size_flags_horizontal = 3
+mouse_filter = 2
+texture = ExtResource("6_x037x")
 
-[node name="nivel_n" parent="niveles/nivel4/isla" index="0"]
-text = "4"
+[node name="nivel4" parent="niveles/nivel4" instance=ExtResource("2_me7iy")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.5
+offset_top = -64.25
+offset_right = 69.5
+offset_bottom = 64.25
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_x263p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cjps1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dy5f7")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_5asx6")
+text = "4
+"
 
-[node name="nivel5" parent="niveles" instance=ExtResource("1_ic0un")]
+[node name="candado" type="TextureRect" parent="niveles/nivel4"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.5
+offset_top = -48.0
+offset_right = 30.5
+offset_bottom = 30.771973
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_52weq")
+expand_mode = 1
+
+[node name="nivel5" type="TextureRect" parent="niveles"]
 layout_mode = 2
-size_flags_horizontal = 3
+mouse_filter = 2
+texture = ExtResource("6_x037x")
 
-[node name="nivel_n" parent="niveles/nivel5/isla" index="0"]
-text = "5"
+[node name="nivel5" parent="niveles/nivel5" instance=ExtResource("2_me7iy")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.5
+offset_top = -64.25
+offset_right = 69.5
+offset_bottom = 64.25
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_x263p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cjps1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dy5f7")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_5asx6")
+text = "5
+
+"
+
+[node name="candado" type="TextureRect" parent="niveles/nivel5"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.5
+offset_top = -48.0
+offset_right = 30.5
+offset_bottom = 30.771973
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_52weq")
+expand_mode = 1
 
 [node name="puentes" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 680.0
+offset_left = 643.0
 offset_top = 372.0
-offset_right = 3153.0
+offset_right = 3470.0
 offset_bottom = 433.0
 mouse_filter = 2
 theme_override_constants/separation = 264
@@ -216,9 +469,5 @@ position_smoothing_speed = 4.0
 [connection signal="mouse_exited" from="CanvasLayer/izquierda" to="." method="_on_izquierda_mouse_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/derecha" to="." method="_on_derecha_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/derecha" to="." method="_on_derecha_mouse_exited"]
-
-[editable path="niveles/nivel1"]
-[editable path="niveles/nivel2"]
-[editable path="niveles/nivel3"]
-[editable path="niveles/nivel4"]
-[editable path="niveles/nivel5"]
+[connection signal="pressed" from="niveles/nivel1/nivel1" to="." method="_on_nivel_1_pressed"]
+[connection signal="pressed" from="niveles/nivel2/nivel2" to="." method="_on_nivel_2_pressed"]

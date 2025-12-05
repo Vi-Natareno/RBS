@@ -188,6 +188,13 @@ script = ExtResource("1_wox22")
 
 [node name="HUD" parent="." instance=ExtResource("4_7lm3k")]
 
+[node name="Label" parent="HUD" index="1"]
+visible = true
+offset_left = -335.62
+offset_top = 84.70001
+offset_bottom = 149.70001
+text = "Pegar  arriba  -  E    I              Pegar  abajo   -   F    J"
+
 [node name="GameObjects" type="Node" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="GameObjects"]

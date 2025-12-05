@@ -18,16 +18,21 @@ func _on_body_entered(body: Node2D) -> void:
 			InfoPartida.vida_actual -= 1
 			if InfoPartida.vida_actual % 4 == 0:
 				barra_vida.desaparecer_corazon()
+				InfoPartida.corazones_reales -=1
 			barra_vida.actualizar_barra_vida()
 		else: 
 			body.get_node("hitbox").queue_free()
 			barra_vida.desaparecer_corazon()
+			InfoPartida.corazones_reales -=1
 			timer.start()
 			Engine.time_scale = 0.5
 		efecto.play()
 
 func _on_timer_timeout():
 	Engine.time_scale = 1
-	InfoPartida.vida_actual = 32
+	if InfoPartida.perder_en_ritmo == true:
+		InfoPartida.vida_actual = InfoPartida.vida_final_plataforma
+	else:
+		InfoPartida.vida_actual = 32
 	get_tree().reload_current_scene()
 	pass

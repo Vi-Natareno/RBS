@@ -27,3 +27,15 @@ func get_audio( nivel: int):
 func _ready() -> void:
 #	print(midi)
 	pass
+@warning_ignore("unused_parameter")
+func _process(delta: float) -> void:
+	if  InfoPartida.is_platform:
+		Arr_Conf = Data.db.select_rows("Conf_Nivel_Ritmo", "id= '" + str(InfoPartida.nivel_actual) + "'", ["*"])
+		escala_velocidad = Arr_Conf[0]["escala_velocidad"]
+		desfase_tiempo = Arr_Conf[0]["desfase_tiempo"]
+		tiempo_espera = Arr_Conf[0]["tiempo_espera"]
+		inicio_audio = Arr_Conf[0]["inicio_audio"]
+		tolerancia_perfect = Arr_Conf[0]["tolerancia_perfect"]
+		tolerancia_ok = Arr_Conf[0]["tolerancia_ok"]
+		midi = Arr_Conf[0]["midi_src"]
+		tiempo_finalizacion = Arr_Conf[0]["tiempo_finalizacion"]

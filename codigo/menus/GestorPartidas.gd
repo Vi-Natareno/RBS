@@ -18,3 +18,8 @@ func nueva_partida(nombre: String, id: int): # func actualizar_archivo_partidas
 func desbloquear_sig_nivel(nombre: String, nuevo_nivel: int):
 	Data.db.update_rows("Partidas", "nombre = '" + nombre + "'", {"nivel": nuevo_nivel})
 	pass
+func actualizar_nivel_partida():
+	#var data = Data.db.query("select nivel from Partidas where id = " + str(1))
+	var data = Data.db.select_rows("Partidas","id = '" + str(InfoPartida.id_partida_actual) + "'", ["nivel"])
+	return data[0]["nivel"]
+	

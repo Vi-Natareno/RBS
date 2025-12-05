@@ -1,9 +1,11 @@
 extends Node
 @onready var enemigo: AnimatedSprite2D = $".."
 @onready var barra_vida = $"../../../HUD/barra_vida"
-var timer := Timer.new()
 const MACHINE_POWER_OFF = preload("uid://ctbounrk7uwki")
 var efecto := AudioStreamPlayer.new()
+var fake_timer := 0.0
+var fake_tflag :bool
+var end_time := 1.5
 #posicion
 const LUGAR_LIBERACION = 60
 var velocidad: float = 0 #se sobreescribe en midi_event()
@@ -11,24 +13,28 @@ var velocidad: float = 0 #se sobreescribe en midi_event()
 var tiempo_llegada:float = 0 #se asigna en el midi ez
 var TOLERANCIA_TIEMPO_ANOTACION := {
 	"PERFECT": Ritmo.tolerancia_perfect,
-	"OK": Ritmo.tolerancia_ok
-}
+	"OK": Ritmo.tolerancia_ok }
+
 func _ready() -> void:
-	add_child(timer)
 	add_child(efecto)
 	efecto.stream = MACHINE_POWER_OFF
 	efecto.bus = "SFX"
-	timer.wait_time = 0.8
-	timer.one_shot = true
-	timer.timeout.connect(_on_timer_timeout)
+	#end_timer.timeout.connect(_on_end_timer_timeout)
 	
 func _process(delta: float) -> void:
+	fake_timer += delta
 	enemigo.position.x -= velocidad * delta
-	if InfoPartida.vida_actual == 0 and InfoPartida.audio_active == true:
+	if InfoPartida.vida_actual == 0 and not fake_tflag:
+		fake_tflag = true
+		fake_timer = 0
 		efecto.play()
-		InfoPartida.audio_active = false
-		$"../../../Musica/AudioStreamPlayer2D".stop()
-		timer.start()
+		$"../../../Musica/AudioStreamPlayer2D".volume_db = -5
+		
+	if fake_tflag:
+		fake_timer += delta
+		if fake_timer >= end_time:
+			cambiar_escena()
+	
 
 func pasar_lugar_liberacion(target_pos: Vector2)->bool:
 	if enemigo.position.x < LUGAR_LIBERACION:
@@ -39,11 +45,13 @@ func pasar_lugar_liberacion(target_pos: Vector2)->bool:
 			InfoPartida.vida_actual -= 1
 			if InfoPartida.vida_actual % 4 == 0:
 				barra_vida.desaparecer_corazon()
+				InfoPartida.corazones_reales -= 1
 			barra_vida.actualizar_barra_vida()
 			
 		else: 
 			InfoPartida.vida_actual -= 1
 			barra_vida.desaparecer_corazon()
+			InfoPartida.corazones_reales -=1
 			Engine.time_scale = 0.5
 		return true
 	return false
@@ -68,8 +76,9 @@ func recibir_golpe(delta_sum:float, target_pos:Vector2, half:bool = false):
 		#print("OK HALF")
 	enemigo.queue_free()
 
-func _on_timer_timeout():
+func cambiar_escena():
 	InfoPartida.is_platform = true
 	Engine.time_scale = 1
 	InfoPartida.vida_actual = InfoPartida.vida_final_plataforma
-	get_tree().change_scene_to_file("res://RBS/escenas/juego/plataformas/plat_1.tscn")
+	InfoPartida.perder_en_ritmo = true
+	get_tree().change_scene_to_file("res://RBS/escenas/juego/plataformas/plat_"+str(InfoPartida.nivel_actual)+".tscn")

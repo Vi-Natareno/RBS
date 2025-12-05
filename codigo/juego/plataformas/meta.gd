@@ -12,7 +12,9 @@ func _on_timer_meta_timeout():
 	InfoPartida.vida_final_plataforma = InfoPartida.vida_actual
 	get_tree().change_scene_to_file("res://RBS/escenas/juego/ritmo/ritmo.tscn")
 
+@warning_ignore("unused_parameter")
 func _on_body_entered(body: Node2D) -> void:
+	InfoPartida.last_plat_position = InfoPartida.last_positions[InfoPartida.nivel_actual-1]
 	$"../HUD/carg1".show()
 	$"../HUD/carglab".show()
 	InfoPartida.is_platform = false

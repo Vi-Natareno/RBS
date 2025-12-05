@@ -15,7 +15,7 @@ func actualizar_barra_vida():
 	pass
 	
 func desaparecer_corazon():
-	var idx_corazon = get_child_count()
-	var corazon_actual = get_child(idx_corazon-1)
+	var idx_corazon = InfoPartida.corazones_reales
 	if idx_corazon > 0:
+		var corazon_actual = get_child(idx_corazon-1)
 		corazon_actual.queue_free()

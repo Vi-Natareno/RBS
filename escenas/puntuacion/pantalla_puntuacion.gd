@@ -62,15 +62,15 @@ func actualizar_puntos_finales():
 		pf_graficados += int(paso)
 
 func _on_continuar_pressed() -> void:
-	InfoPartida.vida_actual = 32
-	InfoPartida.nivel_actual = 1
-	InfoPartida.audio_active = true
-	InfoPartida.is_platform = true
 	get_tree().change_scene_to_file("res://RBS/escenas/menus/menu_niveles.tscn")
 
 func guardar_datos_partida():
 	gestor_puntuaciones.guardar_puntuacion(InfoPartida.partida_actual["nombre"], InfoPartida.nivel_actual, puntos_finales)
 	# guardar_puntuacion(nombre:String,nivel:int,puntuacion:int):
-	gestor_partidas.desbloquear_sig_nivel(InfoPartida.partida_actual["nombre"], InfoPartida.partida_actual["nivel"]+1)
+	print(InfoPartida.partida_actual["nivel"])
+	if InfoPartida.partida_actual["nivel"] == InfoPartida.nivel_actual:
+		gestor_partidas.desbloquear_sig_nivel(InfoPartida.partida_actual["nombre"], InfoPartida.partida_actual["nivel"]+1)
+		InfoPartida.partida_actual["nivel"] = gestor_partidas.actualizar_nivel_partida()
+	print(InfoPartida.partida_actual["nivel"])
 	#desbloquear_sig_nivel(nombre: String, nuevo_nivel: int):
 	pass

@@ -12,12 +12,15 @@ var escala_velocidad:float = Ritmo.escala_velocidad #separacion
 var tiempo_transcurrido: float = 0 #suma delta desde el inicio
 var tiempo_desde_MIDI: float = 0 #suma delta desde el inicio del midi
 var inicio_audio: float = Ritmo.inicio_audio #DB +1 6.4
+@onready var midi = Ritmo.midi
 # AJUSTES DE TIEMPO PARA ANOTACION PERFECT Y OK--------------DB-------------------------------
 #cuando el MIDI player inicia, la nota se instancia hasta la derecha, pero ya necesita estar en el marcador
 #para eso esta el desfase de tiempo
 var desfase_tiempo:float = Ritmo.desfase_tiempo #segundos que tarda la nota en caer en el centro del marcador 
 var tiempo_espera: float = Ritmo.tiempo_espera #segundos antes de iniciar el midi
-
+#vida
+@onready var barra_vida: Node2D = $HUD/barra_vida
+var corazones = 0
 @onready var notas: Dictionary = {
 	#mi, doble superior
 	 52: { #52,36
@@ -87,16 +90,13 @@ func _iniciar_midi():
 			
 #####---- ESTE ES QUE EL TOMA EN CUENTA EL DESFASE DE TIEMPO DE LA NOTA -------##########
 func _iniciar_audio():
-	if not $Musica/AudioStreamPlayer2D.playing and InfoPartida.audio_active == true:
-		$Musica/AudioStreamPlayer2D.play(Ritmo.inicio_audio)
-		
+	if not $Musica/AudioStreamPlayer2D.playing:
+		$Musica/AudioStreamPlayer2D.play(Ritmo.inicio_audio)		
 # INICIO MIDI Y AUDIO---------------------------------------------------------------------------
 
 func _ready() -> void:
-	print(get_parent().get_node("ritmo_1"))
 	if get_parent().get_node("ritmo_1") == $".":
 		Puntuador.anotacion_labels = get_parent().get_node("ritmo_1").get_node("MarcadorAtaque/Anotacion_labels")
-	InfoPartida.audio_active = true
 	InfoPartida.is_platform = false
 	Puntuador.puntos = 0
 	Puntuador.puntos_graficados = 0
@@ -107,7 +107,16 @@ func _ready() -> void:
 	timer.one_shot = true
 	timer.timeout.connect(_on_timer_timeout)
 	_configurar_midi_audio()
+	_actualizar_corazones()
 
+func _actualizar_corazones():
+	var residuo = InfoPartida.vida_actual % 4
+	corazones = int(ceil(float(InfoPartida.vida_actual)/4))
+	InfoPartida.corazones_reales = int(ceil(float(InfoPartida.vida_actual)/4))
+	for i in range (corazones,barra_vida.get_child_count()):
+		barra_vida.get_child(i).queue_free()
+	barra_vida.get_child(corazones-1).frame = residuo
+			
 func _on_timer_timeout():
 	get_tree().change_scene_to_file("res://RBS/escenas/puntuacion/pantalla_puntuacion.tscn")
 	pass

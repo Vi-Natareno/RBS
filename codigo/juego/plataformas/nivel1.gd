@@ -12,13 +12,23 @@ var t_espera_bala_rapida = 0
 var t_transcurrido = 0
 var inter_disparo := 1
 var inter_disparo_rapido := 0.3
-
+#posicion player
+@onready var canelita: CharacterBody2D = $Player
+@onready var camera_2d: Camera2D = $Player/Camera2D
+#barra vida
+@onready var barra_vida: Node2D = $HUD/barra_vida
+var corazones:int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	InfoPartida.is_platform = true
+	_actualizar_corazones()
+	camera_2d.position_smoothing_enabled = false
+	if InfoPartida.perder_en_ritmo:
+		canelita.position = InfoPartida.last_plat_position
 	add_child(timer1)
 	add_child(timer_bala1)
 	timer1.wait_time = 3
-	timer_bala1.wait_time = 5 #menos seguido
+	timer_bala1.wait_time = 2.8 #menos seguido
 	timer1.one_shot = true
 	timer_bala1.one_shot = true
 	timer1.start()
@@ -26,6 +36,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	camera_2d.position_smoothing_enabled = true
 	t_transcurrido += delta
 	mover_enemigo1(slime1, 70, delta)
 	mover_enemigo1(slime2, 70, delta)
@@ -67,3 +78,11 @@ func mover_enemigo1(enemigo,velocidad: int,delta: float):
 	else:
 		enemigo.mover_horizontal(velocidad, delta)
 		t_espera = 0
+		
+func _actualizar_corazones():
+	var residuo = InfoPartida.vida_actual % 4
+	corazones = int(ceil(float(InfoPartida.vida_actual)/4))
+	InfoPartida.corazones_reales = int(ceil(float(InfoPartida.vida_actual)/4))
+	for i in range (corazones,barra_vida.get_child_count()):
+		barra_vida.get_child(i).queue_free()
+	barra_vida.get_child(corazones-1).frame = residuo
