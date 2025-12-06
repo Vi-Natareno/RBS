@@ -472,3 +472,4 @@ position_smoothing_speed = 4.0
 [connection signal="pressed" from="niveles/nivel2/nivel2" to="." method="_on_nivel_2_pressed"]
 [connection signal="pressed" from="niveles/nivel3/nivel3" to="." method="_on_nivel_3_pressed"]
 [connection signal="pressed" from="niveles/nivel4/nivel4" to="." method="_on_nivel_4_pressed"]
+[connection signal="pressed" from="niveles/nivel5/nivel5" to="." method="_on_nivel_5_pressed"]

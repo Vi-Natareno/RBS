@@ -95,3 +95,10 @@ func _on_nivel_4_pressed() -> void:
 	InfoPartida.nivel_actual = 4
 	get_tree().change_scene_to_file("res://RBS/escenas/juego/plataformas/plat_4.tscn")
 	pass # Replace with function body.
+
+
+func _on_nivel_5_pressed() -> void:
+	InfoPartida.set_jugar_nivel()
+	InfoPartida.nivel_actual = 5
+	get_tree().change_scene_to_file("res://RBS/escenas/juego/plataformas/plat_5.tscn")
+	pass # Replace with function body.

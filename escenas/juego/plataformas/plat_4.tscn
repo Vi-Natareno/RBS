@@ -325,7 +325,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("12_w6qx2")
 theme_override_font_sizes/font_size = 6
-text = "continua para ir a la 
+text = "continúa para ir a la 
           siguiente etapa   -->
 /"
 horizontal_alignment = 1

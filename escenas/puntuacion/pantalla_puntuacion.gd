@@ -68,7 +68,7 @@ func guardar_datos_partida():
 	gestor_puntuaciones.guardar_puntuacion(InfoPartida.partida_actual["nombre"], InfoPartida.nivel_actual, puntos_finales)
 	# guardar_puntuacion(nombre:String,nivel:int,puntuacion:int):
 	print(InfoPartida.partida_actual["nivel"])
-	if InfoPartida.partida_actual["nivel"] == InfoPartida.nivel_actual:
+	if InfoPartida.partida_actual["nivel"] == InfoPartida.nivel_actual and InfoPartida.nivel_actual < 5:
 		gestor_partidas.desbloquear_sig_nivel(InfoPartida.partida_actual["nombre"], InfoPartida.partida_actual["nivel"]+1)
 		InfoPartida.partida_actual["nivel"] = gestor_partidas.actualizar_nivel_partida()
 	print(InfoPartida.partida_actual["nivel"])
