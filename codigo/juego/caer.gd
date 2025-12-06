@@ -13,12 +13,13 @@ func _ready() -> void:
 	
 
 func _on_body_entered(body: Node2D) -> void:
+	if not InfoPartida.perder_en_ritmo:
+		InfoPartida.vida_actual = 32
 	body.get_node("hitbox").queue_free()
 	timer.start()
 	efecto.play()
 	Engine.time_scale = 0.5
-	pass # Replace with function body.
-
+	
 func _on_timer_timeout():
 	Engine.time_scale = 1
 	get_tree().reload_current_scene()

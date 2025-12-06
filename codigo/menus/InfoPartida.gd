@@ -12,7 +12,7 @@ var vida_final_plataforma = 10 #reiniciar en boton, este es un ejemplo si lo pru
 var corazones_reales = 8 #reiniciar en boton
 
 #perder en nivel de ritmo
-var last_positions := [Vector2(840,-133), Vector2(970,-280)]
+var last_positions := [Vector2(840,-133), Vector2(970,-280),Vector2(-450,225) ,Vector2(160,-200)]
 
 var perder_en_ritmo = false #reiniciar?
 var last_plat_position = last_positions[nivel_actual-1]

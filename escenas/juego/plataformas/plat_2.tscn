@@ -342,6 +342,7 @@ position = Vector2(-138.9957, -153.98067)
 stream = ExtResource("4_jyc2a")
 volume_db = -6.582
 autoplay = true
+bus = &"Musica"
 
 [node name="Ange" parent="." instance=ExtResource("6_74nis")]
 position = Vector2(972.8191, -285.85736)
@@ -417,7 +418,7 @@ position = Vector2(280.71997, 273.46005)
 shape = SubResource("WorldBoundaryShape2D_qc8hx")
 
 [node name="meta" type="Area2D" parent="."]
-position = Vector2(1200.1018, -254.888)
+position = Vector2(1170.7119, -254.888)
 collision_layer = 16
 collision_mask = 16
 input_pickable = false

@@ -307,6 +307,7 @@ position_smoothing_enabled = true
 position = Vector2(-138.9957, -153.98067)
 stream = ExtResource("7_gsyg3")
 autoplay = true
+bus = &"Musica"
 
 [node name="Ange" parent="." instance=ExtResource("4_gsyg3")]
 position = Vector2(837.4728, -158.31895)
@@ -368,7 +369,7 @@ position = Vector2(280.71997, 273.46005)
 shape = SubResource("WorldBoundaryShape2D_qc8hx")
 
 [node name="meta" type="Area2D" parent="."]
-position = Vector2(1008.13916, -138.09273)
+position = Vector2(980.6153, -138.09273)
 collision_layer = 16
 collision_mask = 16
 input_pickable = false

@@ -18,7 +18,7 @@ var leap_4 := preload("uid://w536o5ao2svs")
 var stageTwo_5 = preload("uid://drpn0y3jhu0g")
 
 #para ritmo
-var audios := [slayEvil_1, empo_2, awesome_3, leap_4, stageTwo_5]
+var audios := [slayEvil_1, empo_2, awesome_3, stageTwo_5, leap_4]
 
 func get_audio( nivel: int):
 	for i in audios:

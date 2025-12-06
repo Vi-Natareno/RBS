@@ -402,7 +402,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_cjps1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dy5f7")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_5asx6")
 text = "5
-
 "
 
 [node name="candado" type="TextureRect" parent="niveles/nivel5"]
@@ -471,3 +470,5 @@ position_smoothing_speed = 4.0
 [connection signal="mouse_exited" from="CanvasLayer/derecha" to="." method="_on_derecha_mouse_exited"]
 [connection signal="pressed" from="niveles/nivel1/nivel1" to="." method="_on_nivel_1_pressed"]
 [connection signal="pressed" from="niveles/nivel2/nivel2" to="." method="_on_nivel_2_pressed"]
+[connection signal="pressed" from="niveles/nivel3/nivel3" to="." method="_on_nivel_3_pressed"]
+[connection signal="pressed" from="niveles/nivel4/nivel4" to="." method="_on_nivel_4_pressed"]
